@@ -1,12 +1,13 @@
 import React, { useRef, useState } from "react";
 import { Image } from "../../../components/CommonElement";
-import {  Col, Container, Row, Nav, Tab, Form } from "react-bootstrap";
+import { Col, Container, Row, Nav, Tab, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Navigation, } from 'swiper/modules';
 import { FRONTEND_IMAGE_URL } from '../../../config';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Button } from "../../../components/Frontend";
 import frontendRouteMap from "../../../routes/Frontend/frontendRouteMap";
+import horizontalCarousel from "./horizontalCarousel.json";
 
 // Import Swiper styles
 import 'swiper/css';
@@ -17,10 +18,10 @@ function Home() {
   const [activeIndex, setActiveIndex] = useState(null);
 
   const handleImageClick = (index) => {
-      setActiveIndex(index);
+    setActiveIndex(index);
   };
 
-    // State to manage the like status for individual cards
+  // State to manage the like status for individual cards
   const [likedCards, setLikedCards] = useState({
     card1: false,
     card2: false,
@@ -28,9 +29,9 @@ function Home() {
   });
 
   //Modal Video
-    const [showVideosModal, setShowVideosModal] = useState(false);
-    const handleVideosShow = () => setShowVideosModal(true);
-    const handleVideosClose = () => setShowVideosModal(false);
+  const [showVideosModal, setShowVideosModal] = useState(false);
+  const handleVideosShow = () => setShowVideosModal(true);
+  const handleVideosClose = () => setShowVideosModal(false);
   // Function to toggle like/unlike for specific cards
   const handleLikeClick = (cardKey) => {
     setLikedCards((prev) => ({
@@ -43,13 +44,15 @@ function Home() {
   const nextRef = useRef(null);
   const prevRefAdventures = useRef(null);
   const nextRefAdventures = useRef(null);
+
+
   return (
     <>
       <main className="homePage">
         {/*  Banner Section @S  */}
         <section className="bannerSec position-relative">
           <div className="bannerSec_inner position-relative z-1" style={{ backgroundImage: `url(${FRONTEND_IMAGE_URL}/banner.webp)` }}>
-        
+
             <Container>
               <div className="bannerSec_cnt d-sm-flex align-items-end justify-content-between">
                 <div className="bannerSec_cnt_inner">
@@ -61,13 +64,13 @@ function Home() {
                     tricks. Start
                     your journey now!</p>
                 </div>
-                  <Button variant="light" as={Link} to={frontendRouteMap.LISTING.path} extraClass="btn-lg" iconPosition="right" label="Explore More" showIcon={true} iconClass="arrow-right" /> 
-              </div>              
-               <SearchFilter />
-            </Container>     
+                <Button variant="light" as={Link} to={frontendRouteMap.LISTING.path} extraClass="btn-lg" iconPosition="right" label="Explore More" showIcon={true} iconClass="arrow-right" />
+              </div>
+              <SearchFilter />
+            </Container>
             <div className="bannerSec_overlay position-absolute w-100 h-100 start-0 top-0">
               <Image source="banner-overlay.webp" className="img-fluid w-100 h-100 object-fit-cover" alt="banner-overlay" />
-            </div>       
+            </div>
             <div className="bannerSec_curve">
               <Image source="curve.svg" className="img-fluid w-100" alt="banner-curve" />
             </div>
@@ -544,11 +547,11 @@ function Home() {
               </div>
             </div>
             <div className="innovateSec_bottom_btn text-center">
-            <Button variant="primary" as={Link} to="" extraClass="btn-lg" label="Explore More" iconPosition="right" showIcon={true} iconClass="arrow-right" iconExtraClass="ms-3" />
+              <Button variant="primary" as={Link} to="" extraClass="btn-lg" label="Explore More" iconPosition="right" showIcon={true} iconClass="arrow-right" iconExtraClass="ms-3" />
             </div>
           </div>
         </section>
-        {/*  Innovate Section @E  */}        
+        {/*  Innovate Section @E  */}
 
         {/* Travellers Section @S */}
         <section className="py-70 travellerSec">
@@ -560,799 +563,90 @@ function Home() {
               <p className="commonHead_para lg mx-auto mb-0">Hear it from the ones who’ve been there and done that.</p>
             </div>
           </Container>
-             <div className="overflow-hidden">
-                <div className="d-flex align-items-center travellerSec_inner horizontalCarousel">
-                  <div className={`travellerSec_card d-flex ${activeIndex === 1 ? 'active' : ''}`}>
-                    <div className="travellerSec_card_img" onClick={() => handleImageClick(1)}>
-                      <Image source="homepage/traveller-1.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                    </div>
-                    <div className="travellerSec_card_cnt w-100 flex-grow-1">
-                      <div className="travellerSec_card_space h-100">
-                      <div className="d-flex align-items-center justify-content-between">
-                        <div>
-                          <h3 className="travellerSec_card_name font-bd text-truncate">Pooja Nair</h3>
-                          <address className="travellerSec_card_loc d-block mb-0">Bangalore, India</address>
-                        </div>
-                        <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star"></em>
-                        </div>
-                      </div>
-                      <p className="travellerSec_card_txt mt-3 mb-0">Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock.</p>
-                    </div>
-                    </div>
-                  </div>
-                  <div className='travellerSec_card travellerSec_card-video d-flex'>
-                    <div className="travellerSec_card_img">
-                      <Image source="homepage/traveller-1.webp" className="img-fluid w-100 h-100 object-fit-cover" />
+          <div className="overflow-hidden">
+            <div className="d-flex align-items-center travellerSec_inner horizontalCarousel" >
+              {[...Array(3)].map((_, repetitionIndex) => (
+                horizontalCarousel.slice(0, 9).map((card) => (
+                  <div
+                    key={card.id}
+                    className={`travellerSec_card d-flex ${activeIndex === card.id ? 'active' : ''}`}
+                  >
+                    <div className="travellerSec_card_img" onClick={() => !card.isVideo && handleImageClick(card.id)}>
+                      <Image source={card.image} className="img-fluid w-100 h-100 object-fit-cover" />
+                      {card.isVideo && (
                         <div role="button" className="videoBox" onClick={handleVideosShow}>
                           <em className="icon-play" />
                         </div>
+                      )}
                     </div>
-                  </div>
-                  <div className={`travellerSec_card d-flex ${activeIndex === 3 ? 'active' : ''}`}>
-                    <div className="travellerSec_card_img" onClick={() => handleImageClick(3)}>
-                      <Image source="homepage/traveller-2.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                    </div>
-                    <div className="travellerSec_card_cnt w-100 flex-grow-1">
-                      <div className="travellerSec_card_space h-100">
-                      <div className="d-flex align-items-center justify-content-between">
-                        <div>
-                          <h3 className="travellerSec_card_name font-bd text-truncate">Pooja Nair</h3>
-                          <address className="travellerSec_card_loc d-block mb-0">Bangalore, India</address>
-                        </div>
-                        <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star"></em>
-                        </div>
-                      </div>
-                      <p className="travellerSec_card_txt mt-3 mb-0">Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock.</p>
-                    </div>
-                    </div>
-                  </div>
-                  <div className={`travellerSec_card d-flex ${activeIndex === 4 ? 'active' : ''}`}>
-                    <div className="travellerSec_card_img" onClick={() => handleImageClick(4)}>
-                      <Image source="homepage/traveller-3.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                    </div>
-                    <div className="travellerSec_card_cnt w-100 flex-grow-1">
-                      <div className="travellerSec_card_space h-100">
-                      <div className="d-flex align-items-center justify-content-between">
-                        <div>
-                          <h3 className="travellerSec_card_name font-bd text-truncate">Pooja Nair</h3>
-                          <address className="travellerSec_card_loc d-block mb-0">Bangalore, India</address>
-                        </div>
-                        <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star"></em>
+                    {!card.isVideo && (
+                      <div className="travellerSec_card_cnt w-100 flex-grow-1">
+                        <div className="travellerSec_card_space h-100">
+                          <div className="d-flex align-items-center justify-content-between">
+                            <div>
+                              <h3 className="travellerSec_card_name font-bd text-truncate">{card.name}</h3>
+                              <address className="travellerSec_card_loc d-block mb-0">{card.location}</address>
+                            </div>
+                            <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
+                              {Array.from({ length: 5 }, (_, index) => (
+                                <em
+                                  key={index}
+                                  className={`icon-star ${index < card.rating ? 'fill' : ''}`}
+                                ></em>
+                              ))}
+                            </div>
+                          </div>
+                          <p className="travellerSec_card_txt mt-3 mb-0">{card.text}</p>
                         </div>
                       </div>
-                      <p className="travellerSec_card_txt mt-3 mb-0">Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock.</p>
-                    </div>
-                    </div>
+                    )}
                   </div>
-                  <div className={`travellerSec_card d-flex ${activeIndex === 5 ? 'active' : ''}`}>
-                    <div className="travellerSec_card_img" onClick={() => handleImageClick(5)}>
-                      <Image source="homepage/traveller-4.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                    </div>
-                    <div className="travellerSec_card_cnt w-100 flex-grow-1">
-                      <div className="travellerSec_card_space h-100">
-                      <div className="d-flex align-items-center justify-content-between">
-                        <div>
-                          <h3 className="travellerSec_card_name font-bd text-truncate">Pooja Nair</h3>
-                          <address className="travellerSec_card_loc d-block mb-0">Bangalore, India</address>
-                        </div>
-                        <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star"></em>
-                        </div>
-                      </div>
-                      <p className="travellerSec_card_txt mt-3 mb-0">Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock.</p>
-                    </div>
-                    </div>
-                  </div>
-                  <div className={`travellerSec_card d-flex ${activeIndex === 6 ? 'active' : ''}`}>
-                    <div className="travellerSec_card_img" onClick={() => handleImageClick(6)}>
-                      <Image source="homepage/traveller-1.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                    </div>
-                    <div className="travellerSec_card_cnt w-100 flex-grow-1">
-                      <div className="travellerSec_card_space h-100">
-                      <div className="d-flex align-items-center justify-content-between">
-                        <div>
-                          <h3 className="travellerSec_card_name font-bd text-truncate">Pooja Nair</h3>
-                          <address className="travellerSec_card_loc d-block mb-0">Bangalore, India</address>
-                        </div>
-                        <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star"></em>
-                        </div>
-                      </div>
-                      <p className="travellerSec_card_txt mt-3 mb-0">Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock.</p>
-                    </div>
-                    </div>
-                  </div>
-                  <div className='travellerSec_card travellerSec_card-video d-flex'>
-                    <div className="travellerSec_card_img">
-                      <Image source="homepage/traveller-1.webp" className="img-fluid w-100 h-100 object-fit-cover" />
+                ))
+              ))}
+            </div>
+          </div>
+          <div className="overflow-hidden">
+            <div className="d-flex align-items-center travellerSec_inner horizontalReverse">
+              {[...Array(3)].map((_, repetitionIndex) => (
+                horizontalCarousel.slice(10, 18).map((card) => (
+                  <div
+                    key={card.id}
+                    className={`travellerSec_card d-flex ${activeIndex === card.id ? 'active' : ''}`}
+                  >
+                    <div className="travellerSec_card_img" onClick={() => !card.isVideo && handleImageClick(card.id)}>
+                      <Image source={card.image} className="img-fluid w-100 h-100 object-fit-cover" />
+                      {card.isVideo && (
                         <div role="button" className="videoBox" onClick={handleVideosShow}>
                           <em className="icon-play" />
                         </div>
+                      )}
                     </div>
-                  </div>
-                  <div className={`travellerSec_card d-flex ${activeIndex === 8 ? 'active' : ''}`}>
-                    <div className="travellerSec_card_img" onClick={() => handleImageClick(8)}>
-                      <Image source="homepage/traveller-2.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                    </div>
-                    <div className="travellerSec_card_cnt w-100 flex-grow-1">
-                      <div className="travellerSec_card_space h-100">
-                      <div className="d-flex align-items-center justify-content-between">
-                        <div>
-                          <h3 className="travellerSec_card_name font-bd text-truncate">Pooja Nair</h3>
-                          <address className="travellerSec_card_loc d-block mb-0">Bangalore, India</address>
-                        </div>
-                        <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star"></em>
-                        </div>
-                      </div>
-                      <p className="travellerSec_card_txt mt-3 mb-0">Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock.</p>
-                    </div>
-                    </div>
-                  </div>
-                  <div className={`travellerSec_card d-flex ${activeIndex === 9 ? 'active' : ''}`}>
-                    <div className="travellerSec_card_img" onClick={() => handleImageClick(9)}>
-                      <Image source="homepage/traveller-3.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                    </div>
-                    <div className="travellerSec_card_cnt w-100 flex-grow-1">
-                      <div className="travellerSec_card_space h-100">
-                      <div className="d-flex align-items-center justify-content-between">
-                        <div>
-                          <h3 className="travellerSec_card_name font-bd text-truncate">Pooja Nair</h3>
-                          <address className="travellerSec_card_loc d-block mb-0">Bangalore, India</address>
-                        </div>
-                        <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star"></em>
-                        </div>
-                      </div>
-                      <p className="travellerSec_card_txt mt-3 mb-0">Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock.</p>
-                    </div>
-                    </div>
-                  </div>
-                  <div className='travellerSec_card travellerSec_card-video d-flex'>
-                    <div className="travellerSec_card_img">
-                      <Image source="homepage/traveller-1.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                        <div role="button" className="videoBox" onClick={handleVideosShow}>
-                          <em className="icon-play" />
-                        </div>
-                    </div>
-                  </div>
-                  <div className={`travellerSec_card d-flex ${activeIndex === 11 ? 'active' : ''}`}>
-                    <div className="travellerSec_card_img" onClick={() => handleImageClick(11)}>
-                      <Image source="homepage/traveller-1.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                    </div>
-                    <div className="travellerSec_card_cnt w-100 flex-grow-1">
-                      <div className="travellerSec_card_space h-100">
-                      <div className="d-flex align-items-center justify-content-between">
-                        <div>
-                          <h3 className="travellerSec_card_name font-bd text-truncate">Pooja Nair</h3>
-                          <address className="travellerSec_card_loc d-block mb-0">Bangalore, India</address>
-                        </div>
-                        <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star"></em>
-                        </div>
-                      </div>
-                      <p className="travellerSec_card_txt mt-3 mb-0">Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock.</p>
-                    </div>
-                    </div>
-                  </div>
-                  <div className={`travellerSec_card d-flex ${activeIndex === 12 ? 'active' : ''}`}>
-                    <div className="travellerSec_card_img" onClick={() => handleImageClick(12)}>
-                      <Image source="homepage/traveller-1.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                    </div>
-                    <div className="travellerSec_card_cnt w-100 flex-grow-1">
-                      <div className="travellerSec_card_space h-100">
-                      <div className="d-flex align-items-center justify-content-between">
-                        <div>
-                          <h3 className="travellerSec_card_name font-bd text-truncate">Pooja Nair</h3>
-                          <address className="travellerSec_card_loc d-block mb-0">Bangalore, India</address>
-                        </div>
-                        <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star"></em>
-                        </div>
-                      </div>
-                      <p className="travellerSec_card_txt mt-3 mb-0">Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock.</p>
-                    </div>
-                    </div>
-                  </div>
-                  <div className={`travellerSec_card d-flex ${activeIndex === 13 ? 'active' : ''}`}>
-                    <div className="travellerSec_card_img" onClick={() => handleImageClick(13)}>
-                      <Image source="homepage/traveller-2.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                    </div>
-                    <div className="travellerSec_card_cnt w-100 flex-grow-1">
-                      <div className="travellerSec_card_space h-100">
-                      <div className="d-flex align-items-center justify-content-between">
-                        <div>
-                          <h3 className="travellerSec_card_name font-bd text-truncate">Pooja Nair</h3>
-                          <address className="travellerSec_card_loc d-block mb-0">Bangalore, India</address>
-                        </div>
-                        <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star"></em>
-                        </div>
-                      </div>
-                      <p className="travellerSec_card_txt mt-3 mb-0">Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock.</p>
-                    </div>
-                    </div>
-                  </div>
-                  <div className={`travellerSec_card d-flex ${activeIndex === 14 ? 'active' : ''}`}>
-                    <div className="travellerSec_card_img" onClick={() => handleImageClick(14)}>
-                      <Image source="homepage/traveller-3.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                    </div>
-                    <div className="travellerSec_card_cnt w-100 flex-grow-1">
-                      <div className="travellerSec_card_space h-100">
-                      <div className="d-flex align-items-center justify-content-between">
-                        <div>
-                          <h3 className="travellerSec_card_name font-bd text-truncate">Pooja Nair</h3>
-                          <address className="travellerSec_card_loc d-block mb-0">Bangalore, India</address>
-                        </div>
-                        <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star"></em>
-                        </div>
-                      </div>
-                      <p className="travellerSec_card_txt mt-3 mb-0">Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock.</p>
-                    </div>
-                    </div>
-                  </div>
-                  <div className={`travellerSec_card d-flex ${activeIndex === 15 ? 'active' : ''}`}>
-                    <div className="travellerSec_card_img" onClick={() => handleImageClick(15)}>
-                      <Image source="homepage/traveller-4.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                    </div>
-                    <div className="travellerSec_card_cnt w-100 flex-grow-1">
-                      <div className="travellerSec_card_space h-100">
-                      <div className="d-flex align-items-center justify-content-between">
-                        <div>
-                          <h3 className="travellerSec_card_name font-bd text-truncate">Pooja Nair</h3>
-                          <address className="travellerSec_card_loc d-block mb-0">Bangalore, India</address>
-                        </div>
-                        <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star"></em>
-                        </div>
-                      </div>
-                      <p className="travellerSec_card_txt mt-3 mb-0">Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock.</p>
-                    </div>
-                    </div>
-                  </div>
-                  <div className='travellerSec_card travellerSec_card-video d-flex'>
-                    <div className="travellerSec_card_img">
-                      <Image source="homepage/traveller-1.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                        <div role="button" className="videoBox" onClick={handleVideosShow}>
-                          <em className="icon-play" />
-                        </div>
-                    </div>
-                  </div>
-                  <div className={`travellerSec_card d-flex ${activeIndex === 17 ? 'active' : ''}`}>
-                    <div className="travellerSec_card_img" onClick={() => handleImageClick(17)}>
-                      <Image source="homepage/traveller-1.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                    </div>
-                    <div className="travellerSec_card_cnt w-100 flex-grow-1">
-                      <div className="travellerSec_card_space h-100">
-                      <div className="d-flex align-items-center justify-content-between">
-                        <div>
-                          <h3 className="travellerSec_card_name font-bd text-truncate">Pooja Nair</h3>
-                          <address className="travellerSec_card_loc d-block mb-0">Bangalore, India</address>
-                        </div>
-                        <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star"></em>
-                        </div>
-                      </div>
-                      <p className="travellerSec_card_txt mt-3 mb-0">Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock.</p>
-                    </div>
-                    </div>
-                  </div>
-                  <div className={`travellerSec_card d-flex ${activeIndex === 18 ? 'active' : ''}`}>
-                    <div className="travellerSec_card_img" onClick={() => handleImageClick(18)}>
-                      <Image source="homepage/traveller-2.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                    </div>
-                    <div className="travellerSec_card_cnt w-100 flex-grow-1">
-                      <div className="travellerSec_card_space h-100">
-                      <div className="d-flex align-items-center justify-content-between">
-                        <div>
-                          <h3 className="travellerSec_card_name font-bd text-truncate">Pooja Nair</h3>
-                          <address className="travellerSec_card_loc d-block mb-0">Bangalore, India</address>
-                        </div>
-                        <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star"></em>
-                        </div>
-                      </div>
-                      <p className="travellerSec_card_txt mt-3 mb-0">Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock.</p>
-                    </div>
-                    </div>
-                  </div>
-                  <div className={`travellerSec_card d-flex ${activeIndex === 19 ? 'active' : ''}`}>
-                    <div className="travellerSec_card_img" onClick={() => handleImageClick(19)}>
-                      <Image source="homepage/traveller-3.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                    </div>
-                    <div className="travellerSec_card_cnt w-100 flex-grow-1">
-                      <div className="travellerSec_card_space h-100">
-                      <div className="d-flex align-items-center justify-content-between">
-                        <div>
-                          <h3 className="travellerSec_card_name font-bd text-truncate">Pooja Nair</h3>
-                          <address className="travellerSec_card_loc d-block mb-0">Bangalore, India</address>
-                        </div>
-                        <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star"></em>
-                        </div>
-                      </div>
-                      <p className="travellerSec_card_txt mt-3 mb-0">Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock.</p>
-                    </div>
-                    </div>
-                  </div>
-                  <div className={`travellerSec_card d-flex ${activeIndex === 20 ? 'active' : ''}`}>
-                    <div className="travellerSec_card_img" onClick={() => handleImageClick(20)}>
-                      <Image source="homepage/traveller-4.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                    </div>
-                    <div className="travellerSec_card_cnt w-100 flex-grow-1">
-                      <div className="travellerSec_card_space h-100">
-                      <div className="d-flex align-items-center justify-content-between">
-                        <div>
-                          <h3 className="travellerSec_card_name font-bd text-truncate">Pooja Nair</h3>
-                          <address className="travellerSec_card_loc d-block mb-0">Bangalore, India</address>
-                        </div>
-                        <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star fill"></em>
-                          <em className="icon-star"></em>
-                        </div>
-                      </div>
-                      <p className="travellerSec_card_txt mt-3 mb-0">Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock.</p>
-                    </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="overflow-hidden">
-                <div className="d-flex align-items-center travellerSec_inner horizontalReverse">
-                    <div className={`travellerSec_card d-flex ${activeIndex === 21 ? 'active' : ''}`}>
-                      <div className="travellerSec_card_img" onClick={() => handleImageClick(21)}>
-                        <Image source="homepage/traveller-1.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                      </div>
+                    {!card.isVideo && (
                       <div className="travellerSec_card_cnt w-100 flex-grow-1">
                         <div className="travellerSec_card_space h-100">
-                        <div className="d-flex align-items-center justify-content-between">
-                          <div>
-                            <h3 className="travellerSec_card_name font-bd text-truncate">Pooja Nair</h3>
-                            <address className="travellerSec_card_loc d-block mb-0">Bangalore, India</address>
+                          <div className="d-flex align-items-center justify-content-between">
+                            <div>
+                              <h3 className="travellerSec_card_name font-bd text-truncate">{card.name}</h3>
+                              <address className="travellerSec_card_loc d-block mb-0">{card.location}</address>
+                            </div>
+                            <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
+                              {Array.from({ length: 5 }, (_, index) => (
+                                <em
+                                  key={index}
+                                  className={`icon-star ${index < card.rating ? 'fill' : ''}`}
+                                ></em>
+                              ))}
+                            </div>
                           </div>
-                          <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star"></em>
-                          </div>
+                          <p className="travellerSec_card_txt mt-3 mb-0">{card.text}</p>
                         </div>
-                        <p className="travellerSec_card_txt mt-3 mb-0">Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock.</p>
                       </div>
-                      </div>
-                    </div>
-                    <div className='travellerSec_card travellerSec_card-video d-flex'>
-                    <div className="travellerSec_card_img">
-                      <Image source="homepage/traveller-1.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                        <div role="button" className="videoBox" onClick={handleVideosShow}>
-                          <em className="icon-play" />
-                        </div>
-                    </div>
+                    )}
                   </div>
-                    <div className={`travellerSec_card d-flex ${activeIndex === 23 ? 'active' : ''}`}>
-                      <div className="travellerSec_card_img" onClick={() => handleImageClick(23)}>
-                        <Image source="homepage/traveller-2.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                      </div>
-                      <div className="travellerSec_card_cnt w-100 flex-grow-1">
-                        <div className="travellerSec_card_space h-100">
-                        <div className="d-flex align-items-center justify-content-between">
-                          <div>
-                            <h3 className="travellerSec_card_name font-bd text-truncate">Pooja Nair</h3>
-                            <address className="travellerSec_card_loc d-block mb-0">Bangalore, India</address>
-                          </div>
-                          <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star"></em>
-                          </div>
-                        </div>
-                        <p className="travellerSec_card_txt mt-3 mb-0">Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock.</p>
-                      </div>
-                      </div>
-                    </div>
-                    <div className={`travellerSec_card d-flex ${activeIndex === 24 ? 'active' : ''}`}>
-                      <div className="travellerSec_card_img" onClick={() => handleImageClick(24)}>
-                        <Image source="homepage/traveller-3.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                      </div>
-                      <div className="travellerSec_card_cnt w-100 flex-grow-1">
-                        <div className="travellerSec_card_space h-100">
-                        <div className="d-flex align-items-center justify-content-between">
-                          <div>
-                            <h3 className="travellerSec_card_name font-bd text-truncate">Pooja Nair</h3>
-                            <address className="travellerSec_card_loc d-block mb-0">Bangalore, India</address>
-                          </div>
-                          <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star"></em>
-                          </div>
-                        </div>
-                        <p className="travellerSec_card_txt mt-3 mb-0">Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock.</p>
-                      </div>
-                      </div>
-                    </div>
-                    <div className={`travellerSec_card d-flex ${activeIndex === 25 ? 'active' : ''}`}>
-                      <div className="travellerSec_card_img" onClick={() => handleImageClick(25)}>
-                        <Image source="homepage/traveller-4.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                      </div>
-                      <div className="travellerSec_card_cnt w-100 flex-grow-1">
-                        <div className="travellerSec_card_space h-100">
-                        <div className="d-flex align-items-center justify-content-between">
-                          <div>
-                            <h3 className="travellerSec_card_name font-bd text-truncate">Pooja Nair</h3>
-                            <address className="travellerSec_card_loc d-block mb-0">Bangalore, India</address>
-                          </div>
-                          <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star"></em>
-                          </div>
-                        </div>
-                        <p className="travellerSec_card_txt mt-3 mb-0">Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock.</p>
-                      </div>
-                      </div>
-                    </div>
-                    <div className='travellerSec_card travellerSec_card-video d-flex'>
-                      <div className="travellerSec_card_img">
-                        <Image source="homepage/traveller-1.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                          <div role="button" className="videoBox" onClick={handleVideosShow}>
-                            <em className="icon-play" />
-                          </div>
-                          </div>
-                      </div>
-                    <div className={`travellerSec_card d-flex ${activeIndex === 27 ? 'active' : ''}`}>
-                      <div className="travellerSec_card_img" onClick={() => handleImageClick(27)}>
-                        <Image source="homepage/traveller-6.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                      </div>
-                      <div className="travellerSec_card_cnt w-100 flex-grow-1">
-                        <div className="travellerSec_card_space h-100">
-                        <div className="d-flex align-items-center justify-content-between">
-                          <div>
-                            <h3 className="travellerSec_card_name font-bd text-truncate">Pooja Nair</h3>
-                            <address className="travellerSec_card_loc d-block mb-0">Bangalore, India</address>
-                          </div>
-                          <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star"></em>
-                          </div>
-                        </div>
-                        <p className="travellerSec_card_txt mt-3 mb-0">Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock.</p>
-                      </div>
-                      </div>
-                    </div>
-                    <div className={`travellerSec_card d-flex ${activeIndex === 28 ? 'active' : ''}`}>
-                      <div className="travellerSec_card_img" onClick={() => handleImageClick(28)}>
-                        <Image source="homepage/traveller-7.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                      </div>
-                      <div className="travellerSec_card_cnt w-100 flex-grow-1">
-                        <div className="travellerSec_card_space h-100">
-                        <div className="d-flex align-items-center justify-content-between">
-                          <div>
-                            <h3 className="travellerSec_card_name font-bd text-truncate">Pooja Nair</h3>
-                            <address className="travellerSec_card_loc d-block mb-0">Bangalore, India</address>
-                          </div>
-                          <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star"></em>
-                          </div>
-                        </div>
-                        <p className="travellerSec_card_txt mt-3 mb-0">Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock.</p>
-                      </div>
-                      </div>
-                    </div>
-                    <div className='travellerSec_card travellerSec_card-video d-flex'>
-                      <div className="travellerSec_card_img">
-                        <Image source="homepage/traveller-1.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                          <div role="button" className="videoBox" onClick={handleVideosShow}>
-                            <em className="icon-play" />
-                          </div>
-                      </div>
-                    </div>
-                    <div className={`travellerSec_card d-flex ${activeIndex === 30 ? 'active' : ''}`}>
-                      <div className="travellerSec_card_img" onClick={() => handleImageClick(30)}>
-                        <Image source="homepage/traveller-9.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                      </div>
-                      <div className="travellerSec_card_cnt w-100 flex-grow-1">
-                        <div className="travellerSec_card_space h-100">
-                        <div className="d-flex align-items-center justify-content-between">
-                          <div>
-                            <h3 className="travellerSec_card_name font-bd text-truncate">Pooja Nair</h3>
-                            <address className="travellerSec_card_loc d-block mb-0">Bangalore, India</address>
-                          </div>
-                          <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star"></em>
-                          </div>
-                        </div>
-                        <p className="travellerSec_card_txt mt-3 mb-0">Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock.</p>
-                      </div>
-                      </div>
-                    </div>
-                    <div className={`travellerSec_card d-flex ${activeIndex === 31 ? 'active' : ''}`}>
-                      <div className="travellerSec_card_img" onClick={() => handleImageClick(31)}>
-                        <Image source="homepage/traveller-8.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                      </div>
-                      <div className="travellerSec_card_cnt w-100 flex-grow-1">
-                        <div className="travellerSec_card_space h-100">
-                        <div className="d-flex align-items-center justify-content-between">
-                          <div>
-                            <h3 className="travellerSec_card_name font-bd text-truncate">Pooja Nair</h3>
-                            <address className="travellerSec_card_loc d-block mb-0">Bangalore, India</address>
-                          </div>
-                          <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star"></em>
-                          </div>
-                        </div>
-                        <p className="travellerSec_card_txt mt-3 mb-0">Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock.</p>
-                      </div>
-                      </div>
-                    </div>
-                    <div className={`travellerSec_card d-flex ${activeIndex === 32 ? 'active' : ''}`}>
-                      <div className="travellerSec_card_img" onClick={() => handleImageClick(32)}>
-                        <Image source="homepage/traveller-9.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                      </div>
-                      <div className="travellerSec_card_cnt w-100 flex-grow-1">
-                        <div className="travellerSec_card_space h-100">
-                        <div className="d-flex align-items-center justify-content-between">
-                          <div>
-                            <h3 className="travellerSec_card_name font-bd text-truncate">Pooja Nair</h3>
-                            <address className="travellerSec_card_loc d-block mb-0">Bangalore, India</address>
-                          </div>
-                          <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star"></em>
-                          </div>
-                        </div>
-                        <p className="travellerSec_card_txt mt-3 mb-0">Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock.</p>
-                      </div>
-                      </div>
-                    </div>
-                    <div className='travellerSec_card travellerSec_card-video d-flex'>
-                      <div className="travellerSec_card_img">
-                        <Image source="homepage/traveller-1.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                          <div role="button" className="videoBox" onClick={handleVideosShow}>
-                            <em className="icon-play" />
-                          </div>
-                      </div>
-                    </div>
-                    <div className={`travellerSec_card d-flex ${activeIndex === 34 ? 'active' : ''}`}>
-                      <div className="travellerSec_card_img" onClick={() => handleImageClick(34)}>
-                        <Image source="homepage/traveller-1.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                      </div>
-                      <div className="travellerSec_card_cnt w-100 flex-grow-1">
-                        <div className="travellerSec_card_space h-100">
-                        <div className="d-flex align-items-center justify-content-between">
-                          <div>
-                            <h3 className="travellerSec_card_name font-bd text-truncate">Pooja Nair</h3>
-                            <address className="travellerSec_card_loc d-block mb-0">Bangalore, India</address>
-                          </div>
-                          <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star"></em>
-                          </div>
-                        </div>
-                        <p className="travellerSec_card_txt mt-3 mb-0">Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock.</p>
-                      </div>
-                      </div>
-                    </div>
-                    <div className={`travellerSec_card d-flex ${activeIndex === 35 ? 'active' : ''}`}>
-                      <div className="travellerSec_card_img" onClick={() => handleImageClick(35)}>
-                        <Image source="homepage/traveller-2.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                      </div>
-                      <div className="travellerSec_card_cnt w-100 flex-grow-1">
-                        <div className="travellerSec_card_space h-100">
-                        <div className="d-flex align-items-center justify-content-between">
-                          <div>
-                            <h3 className="travellerSec_card_name font-bd text-truncate">Pooja Nair</h3>
-                            <address className="travellerSec_card_loc d-block mb-0">Bangalore, India</address>
-                          </div>
-                          <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star"></em>
-                          </div>
-                        </div>
-                        <p className="travellerSec_card_txt mt-3 mb-0">Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock.</p>
-                      </div>
-                      </div>
-                    </div>
-                    <div className='travellerSec_card travellerSec_card-video d-flex'>
-                      <div className="travellerSec_card_img">
-                        <Image source="homepage/traveller-1.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                          <div role="button" className="videoBox" onClick={handleVideosShow}>
-                            <em className="icon-play" />
-                          </div>
-                      </div>
-                    </div>
-                    <div className={`travellerSec_card d-flex ${activeIndex === 37 ? 'active' : ''}`}>
-                      <div className="travellerSec_card_img" onClick={() => handleImageClick(37)}>
-                        <Image source="homepage/traveller-4.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                      </div>
-                      <div className="travellerSec_card_cnt w-100 flex-grow-1">
-                        <div className="travellerSec_card_space h-100">
-                        <div className="d-flex align-items-center justify-content-between">
-                          <div>
-                            <h3 className="travellerSec_card_name font-bd text-truncate">Pooja Nair</h3>
-                            <address className="travellerSec_card_loc d-block mb-0">Bangalore, India</address>
-                          </div>
-                          <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star"></em>
-                          </div>
-                        </div>
-                        <p className="travellerSec_card_txt mt-3 mb-0">Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock.</p>
-                      </div>
-                      </div>
-                    </div>
-                    <div className={`travellerSec_card d-flex ${activeIndex === 38 ? 'active' : ''}`}>
-                      <div className="travellerSec_card_img" onClick={() => handleImageClick(38)}>
-                        <Image source="homepage/traveller-5.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                      </div>
-                      <div className="travellerSec_card_cnt w-100 flex-grow-1">
-                        <div className="travellerSec_card_space h-100">
-                        <div className="d-flex align-items-center justify-content-between">
-                          <div>
-                            <h3 className="travellerSec_card_name font-bd text-truncate">Pooja Nair</h3>
-                            <address className="travellerSec_card_loc d-block mb-0">Bangalore, India</address>
-                          </div>
-                          <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star"></em>
-                          </div>
-                        </div>
-                        <p className="travellerSec_card_txt mt-3 mb-0">Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock.</p>
-                      </div>
-                      </div>
-                    </div>
-                    <div className={`travellerSec_card d-flex ${activeIndex === 39 ? 'active' : ''}`}>
-                      <div className="travellerSec_card_img" onClick={() => handleImageClick(39)}>
-                        <Image source="homepage/traveller-6.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                      </div>
-                      <div className="travellerSec_card_cnt w-100 flex-grow-1">
-                        <div className="travellerSec_card_space h-100">
-                        <div className="d-flex align-items-center justify-content-between">
-                          <div>
-                            <h3 className="travellerSec_card_name font-bd text-truncate">Pooja Nair</h3>
-                            <address className="travellerSec_card_loc d-block mb-0">Bangalore, India</address>
-                          </div>
-                          <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star"></em>
-                          </div>
-                        </div>
-                        <p className="travellerSec_card_txt mt-3 mb-0">Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock.</p>
-                      </div>
-                      </div>
-                    </div>
-                    <div className={`travellerSec_card d-flex ${activeIndex === 40 ? 'active' : ''}`}>
-                      <div className="travellerSec_card_img" onClick={() => handleImageClick(40)}>
-                        <Image source="homepage/traveller-7.webp" className="img-fluid w-100 h-100 object-fit-cover" />
-                      </div>
-                      <div className="travellerSec_card_cnt w-100 flex-grow-1">
-                        <div className="travellerSec_card_space h-100">
-                        <div className="d-flex align-items-center justify-content-between">
-                          <div>
-                            <h3 className="travellerSec_card_name font-bd text-truncate">Pooja Nair</h3>
-                            <address className="travellerSec_card_loc d-block mb-0">Bangalore, India</address>
-                          </div>
-                          <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star fill"></em>
-                            <em className="icon-star"></em>
-                          </div>
-                        </div>
-                        <p className="travellerSec_card_txt mt-3 mb-0">Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock.</p>
-                      </div>
-                      </div>
-                    </div>
-                </div>
-              </div>
+                ))
+              ))}
+            </div>
+          </div>
         </section>
         {/* Travellers Section @E */}
 
@@ -1530,7 +824,7 @@ function Home() {
                   </Row>
                 </Tab.Pane>
                 <Tab.Pane eventKey="popular">
-                <Row className="g-4">
+                  <Row className="g-4">
                     <Col xxl={3} md={4}>
                       <div className="popularSec_box d-flex align-items-center">
                         <div className="popularSec_box_img overflow-hidden flex-shrink-0">
@@ -1638,7 +932,7 @@ function Home() {
                           <Link to="#!" className="font-md popularSec_box_link link-600">Book Now<em className="icon-arrow-right ms-2" /></Link>
                         </div>
                       </div>
-                    </Col>                    
+                    </Col>
                     <Col xxl={3} md={4}>
                       <div className="popularSec_box d-flex align-items-center">
                         <div className="popularSec_box_img overflow-hidden flex-shrink-0">
@@ -1683,9 +977,9 @@ function Home() {
           </Container>
         </section>
         {/* Popular Section @E */}
-          <Modal show={showVideosModal} className="videoModal" handleClose={handleVideosClose} size="md">
-            <VideosModal/>
-          </Modal>
+        <Modal show={showVideosModal} className="videoModal" handleClose={handleVideosClose} size="md">
+          <VideosModal />
+        </Modal>
       </main>
     </>
   );

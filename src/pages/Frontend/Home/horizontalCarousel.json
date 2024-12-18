@@ -1,0 +1,133 @@
+[
+  {
+    "id": 1,
+    "image": "homepage/traveller-1.webp",
+    "name": "Pooja Nair",
+    "location": "Bangalore, India",
+    "rating": 4,
+    "text": "Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock."
+  },
+  {
+    "id": 2,
+    "image": "homepage/traveller-2.webp",
+    "isVideo": true
+  },
+  {
+    "id": 3,
+    "image": "homepage/traveller-3.webp",
+    "name": "Pooja Nair",
+    "location": "Bangalore, India",
+    "rating": 4,
+    "text": "Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock."
+  },
+  {
+    "id": 4,
+    "image": "homepage/traveller-4.webp",
+    "name": "Pooja Nair",
+    "location": "Bangalore, India",
+    "rating": 4,
+    "text": "Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock."
+  },
+  {
+    "id": 5,
+    "image": "homepage/traveller-5.webp",
+    "name": "Pooja Nair",
+    "location": "Bangalore, India",
+    "rating": 4,
+    "text": "Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock."
+  },
+  {
+    "id": 6,
+    "image": "homepage/traveller-6.webp",
+    "name": "Pooja Nair",
+    "location": "Bangalore, India",
+    "rating": 4,
+    "text": "Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock."
+  },
+  {
+    "id": 7,
+    "image": "homepage/traveller-7.webp",
+    "isVideo": true
+  },
+  {
+    "id": 8,
+    "image": "homepage/traveller-8.webp",
+    "name": "Pooja Nair",
+    "location": "Bangalore, India",
+    "rating": 4,
+    "text": "Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock."
+  },
+  {
+    "id": 9,
+    "image": "homepage/traveller-9.webp",
+    "name": "Pooja Nair",
+    "location": "Bangalore, India",
+    "rating": 4,
+    "text": "Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock."
+  },
+  {
+    "id": 10,
+    "image": "homepage/traveller-10.webp",
+    "isVideo": true
+  },
+  {
+    "id": 11,
+    "image": "homepage/traveller-11.webp",
+    "name": "Pooja Nair",
+    "location": "Bangalore, India",
+    "rating": 4,
+    "text": "Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock."
+  },
+  {
+    "id": 12,
+    "image": "homepage/traveller-12.webp",
+    "name": "Pooja Nair",
+    "location": "Bangalore, India",
+    "rating": 4,
+    "text": "Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock."
+  },
+  {
+    "id": 13,
+    "image": "homepage/traveller-13.webp",
+    "name": "Pooja Nair",
+    "location": "Bangalore, India",
+    "rating": 4,
+    "text": "Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock."
+  },{
+    "id": 14,
+    "image": "homepage/traveller-14.webp",
+    "name": "Pooja Nair",
+    "location": "Bangalore, India",
+    "rating": 4,
+    "text": "Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock."
+  },
+  {
+    "id": 15,
+    "image": "homepage/traveller-15.webp",
+    "name": "Pooja Nair",
+    "location": "Bangalore, India",
+    "rating": 4,
+    "text": "Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock."
+  },
+  {
+    "id": 16,
+    "image": "homepage/traveller-16.webp",
+    "isVideo": true
+  },
+  {
+    "id": 17,
+    "image": "homepage/traveller-17.webp",
+    "name": "Pooja Nair",
+    "location": "Bangalore, India",
+    "rating": 4,
+    "text": "Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock."
+  },
+  {
+    "id": 18,
+    "image": "homepage/traveller-18.webp",
+    "name": "Pooja Nair",
+    "location": "Bangalore, India",
+    "rating": 4,
+    "text": "Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock."
+  }
+]
