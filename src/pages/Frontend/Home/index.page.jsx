@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Image } from "../../../components/CommonElement";
 import {  Col, Container, Row, Nav, Tab, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -54,7 +54,7 @@ function Home() {
               <div className="bannerSec_cnt d-sm-flex align-items-end justify-content-between">
                 <div className="bannerSec_cnt_inner">
                   {/* <Image source="banner-text.svg" className="img-fluid bannerSec_cnt_img" /> */}
-                  <span className="bannerSec_cnt_subTitle text-white">Find Your Dream Cruise</span>
+                  <span className="bannerSec_cnt_subTitle text-white ms-xxl-2">Find Your Dream Cruise</span>
                   <h1 className="text-white bannerSec_cnt_title fw-bold">From Popular Lines
                     To Luxury Voyages</h1>
                   <p className="mb-0">Discover why cruising is the ultimate vacation and unlock insider tips and
@@ -377,7 +377,7 @@ function Home() {
               </Col>
             </Row>
             <div className="dealsSec_bottom d-flex align-items-center justify-content-center">
-              <div className="d-flex align-items-start align-items-sm-center"><em className="icon-mail" /><p className="mb-0 ms-1">Save your precious time and effort spent for finding a solution.</p></div><Link to="">Contact us now</Link>
+              <div className="d-flex align-items-start align-items-sm-center"><em className="icon-mail" /><p className="mb-0 ms-2">Save your precious time and effort spent for finding a solution.</p></div><Link to="">Contact us now</Link>
             </div>
           </Container>
         </section>

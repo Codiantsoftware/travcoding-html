@@ -11,7 +11,7 @@
     }
     &_curve {
       position: absolute;
-      bottom: 0px;
+      bottom: -2px;
       width: 100%;
       left: 0;
     }
@@ -68,7 +68,7 @@
 
     @include media-breakpoint-down(xxl) {
       &_inner {
-        height: 680px;
+        height: 630px;
       }
       &_cnt {
         padding: 255px 0 30px;
