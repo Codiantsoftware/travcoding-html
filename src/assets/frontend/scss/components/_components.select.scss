@@ -1,0 +1,111 @@
+.select-group {
+  .customSelect {
+    &__control {
+      border-radius: 5px;
+      background: rgba($color: color(80), $alpha: 0.5);
+      border-color: transparent;
+      box-shadow: none;
+      height: 50px;
+      padding: 0px 10px 0 20px;
+      &.customSelect__control--is-focused,
+      &.customSelect__control--is-focused:hover {
+        border-color: color(500);
+      }
+      &:hover {
+        border-color: transparent;
+      }
+      
+    &--menu-is-open{
+      .customSelect__dropdown-indicator {
+       color: color(800);
+       transform: rotate(180deg);
+   
+       }
+     }
+    }
+    &__dropdown {
+      &-indicator {
+        color: rgba($color: color(900), $alpha: 0.5);        
+       transition: all .3s;
+      }
+    }
+    &__value {
+      &-container {
+        padding-left: 0;
+      }
+    }
+    &__input{
+      &-container{
+        margin: 0;
+      }
+    }
+    &__single {
+      &-value {
+        margin: 0;
+        color: rgba($color: color(800), $alpha: 0.8);
+      }
+    }
+    &__option {
+      &--is-focused {
+        background-color: #ffebe9;
+      }
+      &--is-selected {
+        background-color: color(500);
+        color: color(50);
+      }
+      &:active {
+        background-color: color(500);
+        color: color(50);
+      }
+    }
+    &__menu {
+      box-shadow: 0px 2px 8px 0px rgba($color: color(900), $alpha: 0.11);
+      border-radius: 5px; 
+    }
+    &__placeholder {
+      color: rgba($color: color(800), $alpha: 0.5);
+      margin: 0;
+    }
+    &__indicator-separator {
+      display: none;
+    }
+  }
+  &.fieldicon {
+    .customSelect__value-container {
+      padding-left: 30px;
+    }
+  }
+  @include media-breakpoint-down(xxl) {
+    .customSelect {
+    &__control{
+      padding-left: 20px;
+      height: 45px;
+    }
+    &__dropdown {
+      &-indicator {
+        padding: 0;
+      }
+    }
+  }
+    &.fieldicon {
+      .customSelect__value-container {
+        padding-left: 18px;
+      }
+    }
+  }
+  @include media-breakpoint-down(lg) {
+    .customSelect {
+      &__control{
+        padding-left: 15px;
+        font-size: 14px;
+      }
+    }
+  }
+  @include media-breakpoint-down(md) {
+    .customSelect {
+      &__control{
+       height: 40px;
+      }
+    }
+  }
+}

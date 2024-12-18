@@ -1,0 +1,31 @@
+
+// banner search filter
+.searchFilter {
+  padding: 20px 30px 26px;
+  border-radius: 5px;
+  z-index: 1;
+  box-shadow: 0 6px 45px rgba($color: color(900), $alpha: 0.24);
+
+  &_inner {
+    gap: 12px 10px;
+    flex-wrap: wrap;
+  }
+
+  &_title {
+    font-size: 20px;
+    margin-bottom: 14px;
+  }
+
+  .fieldicon {
+    &-right {
+      &.active {
+        color: color(800);
+      }
+    }
+  }
+  @include media-breakpoint-up(md) {
+    .form-group {
+      flex: 1;
+    }
+  }
+}

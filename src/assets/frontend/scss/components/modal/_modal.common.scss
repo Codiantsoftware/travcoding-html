@@ -1,0 +1,55 @@
+.modal{
+    &-content{
+        border: none;
+        border-radius: 5px;
+        box-shadow: 5px 5px 30px rgba(color(900), 0.14);
+    }
+    &-cross{
+        position: absolute;
+        font-size: 22px;
+        color: rgba(color(900),0.70);
+        top: 35px;
+        right: 35px;
+        z-index: 1;
+        transition: all 0.4s ease;
+        &:hover{
+            color: color(500);
+        }
+    }
+    &-md{
+        @include media-breakpoint-up(lg){
+            max-width: 800px;
+        }
+    }
+    &-lg{
+        @include media-breakpoint-up(xxl){
+            max-width: 1210px;
+        }
+        @include media-breakpoint-between(xl, xxl){
+            max-width: 1170px;
+        }
+    }
+    &-xl{
+        @include media-breakpoint-up(xxl){
+            max-width: 1300px;
+        }
+    }
+    &-body{
+        padding: 35px;
+    }
+    @include media-breakpoint-down(xxl){
+        &-body{padding: 20px;} 
+        &-cross{font-size: 17px;top:25px;right: 20px;}
+    }
+    @include media-breakpoint-down(xl){
+        &-body{padding: 15px;} 
+        &-cross{font-size: 15px;right: 15px;}
+    }
+    @include media-breakpoint-down(lg){
+        &-cross{font-size: 13px;top: 22px;}
+    }
+}
+.modal-backdrop{
+    --bs-backdrop-bg: #101010;
+    --bs-backdrop-opacity: 0.70;
+}

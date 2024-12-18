@@ -1,0 +1,274 @@
+body {
+  color: color(800);
+  font-family: font(rg);
+  background-color: color(50);
+  font-size: 16px;
+  line-height: 1.3;
+
+  @include media-breakpoint-down(xxl) {
+    font-size: 15px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: 14px;
+  }
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.5s;
+
+  &:focus-visible {
+    outline: 0;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+
+  &-track {
+    background: #edf1ed;
+  }
+
+  &-thumb {
+    background: color(500);
+
+    &:hover {
+      background: color(500);
+    }
+  }
+}
+
+// container start
+.container {
+  @media(min-width: 1600px) {
+    max-width: 1542px;
+  }
+
+  @media(max-width: 1599px) {
+    max-width: 100%;
+  }
+
+}
+
+// container end
+
+// common padding
+.py-70 {
+  padding: 70px 0px;
+
+  @media(max-width: 1599px) {
+    padding: 60px 0;
+  }
+
+  @include media-breakpoint-down(xxl) {
+    padding: 50px 0;
+  }
+
+  @include media-breakpoint-down(xl) {
+    padding: 40px 0;
+  }
+
+  @include media-breakpoint-down(lg) {
+    padding: 30px 0;
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding: 25px 0;
+  }
+}
+
+//Gutter
+.g-20 {
+  --bs-gutter-x: 20px;
+  --bs-gutter-y: 20px;
+}
+
+// font weight
+.font-rg {
+  font-family: font(rg) !important;
+}
+
+.font-md {
+  font-family: font(md) !important;
+}
+
+.font-bd {
+  font-family: font(bd) !important;
+}
+
+// color
+.text-500 {
+  color: color(500) !important;
+}
+
+.text-900-80 {
+  color: rgba(color(900), 0.8) !important;
+}
+
+//slider button
+.sliderBtn {
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border-radius: 50%;
+    padding: 0;
+
+    &.sm {
+      width: 50px;
+      height: 50px;
+    }
+
+    &.md {
+      width: 60px;
+      height: 60px;
+    }
+  }
+}
+
+//video
+.videoBox {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 55px;
+  height: 55px;
+  background-color: #E33535;
+  border-radius: 50%;
+  font-size: 20px;
+  color: color(50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+  z-index: 1;
+
+  &:hover {
+    transform: scale(0.9);
+  }
+
+  @include media-breakpoint-down(xxl) {
+    font-size: 16px;
+    width: 50px;
+    height: 50px;
+  }
+
+  &:hover {
+    transform: scale(0.9);
+  }
+
+}
+
+
+// rating Star Css
+.ratingStar {
+  span {
+    line-height: normal;
+    color: color(600);
+    margin-left: 5px;
+  }
+
+  em {
+    color: #E7E7E7;
+
+    &.active {
+      color: color(300);
+    }
+
+    &.half {
+      position: relative;
+
+      &::after {
+        content: "\e921";
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: color(300);
+      }
+    }
+
+  }
+}
+
+// common switch 
+.commonToggle {
+  display: flex;
+  border: 1px solid #E5EAF9;
+  border-radius: 4px;
+  padding: 2px;
+  max-width: 123px;
+
+  &_label {
+    flex: 1;
+    text-align: center;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 0;
+    transition: background-color 0.3s ease;
+    margin-bottom: 0;
+    padding: 2px;
+
+    input {
+      display: none;
+
+      &:checked+ {
+        span {
+          background-color: color(500);
+          color: color(50);
+          border-radius: 1px;
+          height: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      line-height: 1.3;
+      color: color(200);
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    max-width: 100px;
+
+    &_label {
+      font-size: 13px;
+
+      input {
+        &:checked {
+          +span {
+            height: 25px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// link primary
+.link-600 {
+  color: color(600);
+  transition: all .8s;
+
+  &:hover {
+    color: #2764ff;
+  }
+}
+
+.react-datepicker,
+.react-datepicker-popper {
+  z-index: 1050 !important;
+  /* Ensure it's above the Swiper */
+}

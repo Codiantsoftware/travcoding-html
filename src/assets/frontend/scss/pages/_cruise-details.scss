@@ -1,0 +1,680 @@
+.detailsPage{
+    background-color: #F6F6F6;
+    .detailsContent{
+        padding-block: 60px 70px;
+    }
+    .detailsCard{
+        background: color(50);
+        border-radius: 10px;
+        padding: 40px;
+        + .detailsCard{
+            margin-top: 20px;
+        }
+        &_head{
+            margin-bottom: 20px;
+            &_title{
+                font-size: 24px;
+                line-height: 1.25;
+                margin: 0;
+            }
+        }
+    }
+    .notePara{
+        line-height: 1.43;
+        font-size: 14px;
+        margin-bottom: 0;
+        margin-top: 20px;
+    }
+    // Main Banner Slider CSS Start
+    .detailsBanner{
+        .swiper{
+            &-button{
+                &-prev,&-next{
+                    width: 64px;
+                    height: 64px;
+                    border-radius: 50%;
+                    color: color(50);
+                    border: 1.5px solid color(50);
+                    background-color: color(900);
+                    position: absolute;
+                    top: auto;
+                    bottom: -32px;
+                    z-index: 2;
+                    &::after{
+                        font-family: "icomoon";
+                        font-size: 19px;
+                    }
+                }
+                &-disabled{
+                    background: #B7B7B7;
+                    opacity: 1;
+                }
+                &-prev{
+                    left: calc(50% - 70px);
+                    &::after{
+                        content: '\e900';
+                    }
+                }
+                &-next{
+                    right: calc(50% - 70px);
+                    &::after{
+                        content: '\e906';
+                    }
+                }
+            }
+        }
+        &_curve{
+            position: absolute;
+            bottom: -10px;
+            width: 100%;
+            left: 0;
+            z-index: 1;
+        }
+    }
+    // Main Banner Slider CSS End
+    // Deatials Section CSS Start
+    .tripInfoBox{
+        margin-bottom: 16px;
+        &_left{
+            &_top{
+                .tripTitle{
+                    font-size: 36px;
+                    font-family: font(md);
+                    line-height: 1.2;
+                    margin-bottom: 0;
+                    margin-right: 8px;
+                }
+                .locationInfo{
+                    line-height: normal;
+                    margin-top: 10px;
+                    em{
+                        color: rgba(color(800),0.60);
+                        font-size: 18px;
+                        margin-right: 10px;
+                    }
+                    span{
+                        display: inline-block;
+                        + span{
+                            margin-left: 10px;
+                            padding-left: 10px;
+                            position: relative;
+                            &::before{
+                                content: '';
+                                width: 2px;
+                                height: 15px;
+                                left: -2px;
+                                background-color: #CFCFCF;
+                                @include absolutecenter(y);
+                            }
+                        }
+                    }
+                    &_sub{
+                        font-family: font(md);  
+                    }
+                    &_tag{
+                        color: rgba(color(800),0.70);
+                    }
+                }
+            }
+            &_body{
+                &_title{
+                    font-size: 20px;
+                    line-height: 1.4;
+                    margin-block: 20px;
+                }
+                ul{
+                    margin-bottom: 0;
+                    li{
+                        span{
+                            font-size: 16px;
+                            display: inline-block;     
+                            color: rgba(color(800),0.70);                       
+                            &:not(:last-child){
+                                margin-right: 10px;
+                                padding-right: 10px;
+                                position: relative;
+                                &::before{
+                                    content: '';
+                                    width: 2px;
+                                    height: 15px;
+                                    right: -2px;
+                                    background-color: #CFCFCF;
+                                    @include absolutecenter(y);
+                                }
+                            }
+                            &:first-child{
+                                margin-right: 5px;
+                                padding-right: 5px;
+                                color: color(800);  
+                                &::before{
+                                    display: none;
+                                }
+                            }
+                        }
+                        &:not(:last-child){
+                            margin-bottom: 5px;
+                        }
+                    }
+                }
+            }
+        }
+        &_right{
+            width: 30%;
+            text-align: end;
+            flex-shrink: 0;
+            .priceInfo{
+                margin-bottom: 8px;
+                &_title{
+                    color: color(500);
+                    font-size: 26px;
+                    line-height: 1.2;
+                    margin-bottom: 0px;
+                    span{
+                        color: color(900);
+                        font-size: 14px;
+                    }
+                    + span{
+                        font-size: 12px;
+                        color: rgba(color(900),0.60);
+                    }
+                }
+            }
+            &_offer{
+                display: inline-flex;
+                align-items: center;
+                font-size: 16px;
+                color: color(500);
+                em{
+                    font-size: 18px;
+                    margin-right: 4px;
+                }
+            }
+        }
+        &_action{
+            margin-bottom: 40px;
+            gap: 12px;
+            &_map{
+                font-size: 16px;
+                color: color(600);                
+            }
+        }
+        &_links{
+            .commonTabs{
+                .nav-link{
+                    &::before {
+                        bottom: -16px;
+                    }
+                }
+            }
+        }
+    }
+    // Details Section CSS End
+    // Ship Highlight CSS Start
+    .shipHighlight{
+        &_cnt{
+            margin-block: 30px;
+            p{
+                margin-bottom: 20px;
+            }
+            ul{
+                li{
+                    position: relative;
+                    padding-left: 18px;
+                    &:not(:last-child){
+                        margin-bottom: 8px;
+                    }
+                    &:before{
+                        content: "";
+                        width: 6px;
+                        height: 6px;
+                        border-radius: 50%;
+                        background: color(200);
+                        vertical-align: middle;
+                        position: absolute;
+                        left: 0;
+                        top: 8px;
+                    }
+                }
+            }
+        }
+    }
+    .highlightsCard{
+        background: color(50);
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 0 15px rgba(color(900), 0.06);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        &_thumb{
+            img{border-radius: 5px; width: 100%;}
+        }
+        &_cnt{
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            &_title{
+                font-size: 22px;
+                line-height: 1.25;
+                margin: 0;
+            }
+            p{
+                line-height: 1.4;
+                @include text-clamp();
+                margin-top: 14px;
+                margin-bottom: 24px;
+            }
+            &_action{
+                margin-top: auto;
+                a{
+                    color: color(600);
+                }
+                .view360{
+                    em{
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+    }
+    // Ship Highlight CSS End
+    // Deck Plan Sec CSS Start
+    .deskPlanSec{
+        &_left{
+            > img{
+                margin-bottom: 15px;
+            }
+            &_card{
+                &:not(:last-child){
+                    margin-bottom: 20px;
+                    padding-bottom: 20px;
+                    border-bottom: 1px solid rgba(color(900), 0.1);
+                }
+                &_title{
+                    font-size: 18px;
+                    line-height: 1.24;
+                    margin-bottom: 10px;
+                }
+                .categoryCodes{
+                    display: flex; margin-top: 15px;
+                    gap: 20px;
+                    span{font-size: 20px; line-height: 1;}
+                }
+                .keySymbols{
+                    margin-top: 15px;
+                    li{
+                        display: flex;
+                        color: rgba(color(900), 0.8);
+                        &:not(:last-child){
+                            margin-bottom: 15px;
+                        }
+                        span{
+                            margin-right: 12px;
+                            width: 30px;
+                            text-align: center;
+                            margin-top: 3px;
+                        }
+                    }
+                }
+            }
+        }
+        &_right{
+            &_head{
+                margin-bottom: 25px;
+                p{
+                    margin-bottom: 20px;
+                }
+                .dropdown{
+                    display: inline-flex;
+                    &-toggle{
+                        font-family: font(md);
+                        font-size: 18px;
+                        color: color(800);
+                        &::after{
+                            content: "\e902";
+                            font-family: 'icomoon';
+                            border: none;
+                            font-size: 13px;
+                            vertical-align: middle;
+                            margin-top: -2px;
+                            margin-left: 10px;
+                            color: color(600);
+                        }
+                    }
+                    &-menu{
+                        box-shadow: 0 0 15px rgba(color(900), 0.06);
+                        border: none;
+                        border-radius: 6px;
+                        margin: 0 auto;
+                        left: 0 !important;
+                        right: 0 !important;
+                        max-width: 150px;
+                        transform: none !important;
+                        top: 30px !important;
+                        a{
+                            font-size: 15px;
+                            color: color(800);
+                            padding: 8px 15px;
+                            &:hover{
+                                background-color: rgba(color(500), 0.08);
+                            }
+                            &.active{
+                                background-color: color(500);
+                                color: color(50);
+                            }
+                        }
+                    }
+                }
+                .fullScreen{
+                    font-size: 20px;
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    &-active{
+                        right: 20px;
+                    }
+                }
+            }
+        }
+    }
+    // Deck Plan Sec CSS End
+    // Ship Facts Sec CSS Start
+    .shipFactsSec{
+        margin-bottom: 40px;
+        .col{
+            flex: 1 0 20%;
+            max-width: 20%;
+        }
+        .shipFactsBox{
+            &_icon{
+                width: 100px;
+                height: 100px;
+                border-radius: 100%;
+                border: 1px solid #ECECEC;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 16px;
+                margin-inline: auto;
+            }
+            p{
+                color: color(800);
+                margin: 0;
+                text-align: center;
+            }
+        }
+    }
+    // Ship Facts Sec CSS End
+
+    // Booking Action Right CSS Start
+    .bookingAction{
+        background: color(50);
+        border-radius: 10px;
+        padding: 30px 20px;
+        position: sticky;
+        top: 100px;
+        p{
+            color: rgba(color(900), 0.5);
+            margin-block: 15px;
+        }
+        a{
+            color: color(600);
+            &:hover{
+                color: darken(color(600), 5%);
+            }
+        }
+    }
+    // Booking Action Right CSS End
+
+    // Responsive Start
+    @media screen and (max-width: 1599px){
+        .detailsCard{
+            padding: 30px;
+        }
+        .detailsBanner{
+            .swiper{
+                &-button{
+                    &-prev,&-next{
+                        width: 50px;
+                        height: 50px;
+                        bottom: -20px;
+                        &::after{
+                            font-size: 16px;
+                        }
+                    }
+                    &-prev{
+                        left: calc(50% - 55px);
+                    }
+                    &-next{
+                        right: calc(50% - 55px);
+                    }
+                }
+            }
+            &_curve{
+                bottom: -5px;
+            }
+        }
+        .highlightsCard{
+            &_cnt{
+                padding: 15px;
+                &_title{
+                    font-size: 20px;
+                }
+                p{
+                    margin-top: 10px;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+        .shipFactsSec{
+            margin-bottom: 30px;
+            .shipFactsBox{
+                &_icon{
+                    width: 90px;
+                    height: 90px;
+                }
+            }
+        }
+    }
+    @include media-breakpoint-down(xxl){
+        .detailsContent{
+            padding-block: 40px 50px;
+        }
+        .detailsCard{
+            border-radius: 8px;
+            padding: 20px;
+            + .detailsCard{
+                margin-top: 15px;
+            }
+            &_head{
+                margin-bottom: 12px;
+                &_title{
+                    font-size: 19px;
+                }
+            }
+        }
+        .notePara{
+            margin-top: 15px;
+        }
+        .tripInfoBox{
+            &_left{
+                &_top{
+                    .tripTitle{
+                        font-size: 30px;
+                        margin-right: 4px;
+                    }
+                }
+                &_body{
+                    &_title{
+                        margin-block: 15px;
+                    }
+                    ul{
+                        li{
+                            span{
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+            &_right{
+                .priceInfo{
+                    &_title{
+                        font-size: 22px;
+                        span{
+                            font-size: 12px;
+                        }
+                    }
+                }
+                &_offer{
+                    font-size: 15px;
+                    em{
+                        font-size: 16px;
+                    }
+                }
+            }
+            &_action{
+                margin-bottom: 30px;
+                &_map{
+                    font-size: 15px;             
+                }
+            }
+            &_links{
+                .commonTabs{
+                    .nav-link{
+                        &::before {
+                            bottom: -12px;
+                        }
+                    }
+                }
+            }
+        }
+        .shipHighlight{
+            &_cnt{
+                margin-block: 20px;
+                p{
+                    margin-bottom: 15px;
+                }
+                ul{
+                    li{
+                        padding-left: 15px;
+                        &:not(:last-child){
+                            margin-bottom: 6px;
+                        }
+                    }
+                }
+            }
+        }
+        .highlightsCard{
+            border-radius: 8px;
+            padding: 8px;
+            &_cnt{
+                padding: 10px 0px;
+                &_title{
+                    font-size: 18px;
+                }
+                p{
+                    margin-top: 7px;
+                    margin-bottom: 15px;
+                }
+                &_action{
+                    a{
+                        font-size: 13px;
+                    }
+                    .view360{
+                        em{
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+        .deskPlanSec{
+            &_left{
+                > img{
+                    margin-bottom: 10px;
+                }
+                &_card{
+                    &:not(:last-child){
+                        margin-bottom: 15px;
+                        padding-bottom: 15px;
+                    }
+                    &_title{
+                        font-size: 16px;
+                    }
+                    .categoryCodes{
+                        margin-top: 10px; gap: 15px;
+                        span{font-size: 18px;}
+                    }
+                    .keySymbols{
+                        margin-top: 10px;
+                        li{
+                            display: flex;
+                            color: rgba(color(900), 0.8);
+                            &:not(:last-child){
+                                margin-bottom: 12px;
+                            }
+                            span{
+                                margin-right: 10px;
+                                width: 20px;
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+            &_right{
+                &_head{
+                    margin-bottom: 20px;
+                    p{
+                        margin-bottom: 15px;
+                    }
+                    .dropdown{
+                        &-menu{
+                            a{
+                                font-size: 14px;
+                                padding: 6px 12px;
+                            }
+                        }
+                    }
+                    .fullScreen{
+                        font-size: 17px;
+                    }
+                }
+            }
+        }
+        .shipFactsSec{
+            margin-bottom: 20px;
+            .col{
+                flex: 1 0 20%;
+                max-width: 20%;
+            }
+            .shipFactsBox{
+                &_icon{
+                    width: 75px;
+                    height: 75px;
+                    margin-bottom: 10px;
+                    img{
+                        max-height: 30px;
+                        max-width: 35px;
+                        object-fit: contain;
+                    }
+                }
+                p{
+                    color: color(800);
+                    margin: 0;
+                    text-align: center;
+                }
+            }
+        }
+        .bookingAction{
+            border-radius: 8px;
+            padding: 15px;
+            top: 80px;
+            p{
+                margin-block: 10px;
+            }
+        }
+    }
+}

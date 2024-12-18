@@ -1,0 +1,165 @@
+.mapModal{
+    $modal:modal;    
+    &_head{
+        margin-bottom: 20px;
+        &_sub{
+            font-size: 20px;
+            line-height: 1.4;
+            font-family: font(bd);
+            margin-bottom: 4px;
+            display: inline-block;
+        }
+        &_title{
+            font-size: 24px;
+            font-family: font(md);
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+        &_list{
+            span{
+                font-size: 18px;
+                font-family: font(md);
+                display: inline-block;
+                + span{
+                    position: relative;
+                    font-family: font(rg);
+                    color: rgba(color(900),0.60);
+                    margin-left: 6px;
+                    border-left: 2px solid #CFCFCF;
+                    padding-left: 6px;
+                }
+            }
+            em{
+                color: rgba(color(900),0.60);
+                margin-right: 10px;
+            }
+        }
+    }
+    &_map{
+        margin-bottom: 28px;
+    }
+    &_slider{
+        position: relative;
+        .swiper{
+            width: 100%;
+            max-width: 1065px;
+        }
+        &_arrow{
+            display: flex;           
+            .swiper-prev,.swiper-next{
+                width: 26px;
+                height: 26px;
+                border-radius: 50%;
+                color: rgba(color(50), 0.70);
+                border: 1.5px solid rgba(color(50), 0.70);
+                font-size: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: rgba(color(900),0.40);
+            }
+        }
+        &_box{
+            &_title{
+                font-size: 16px;
+                line-height: 1.2;
+                font-family: font(md);
+                margin-bottom: 4px;
+            }
+            &_date{
+                display: inline-block;
+                margin-bottom: 8px;
+                font-size: 14px;
+                color: rgba(color(900),0.60);
+            }
+            &_port{
+                color: #111F5D;
+                font-size: 16px;
+                line-height: 1.2;
+                font-family: font(md);
+                margin-bottom: 4px;
+            }
+            &_time{
+                font-size: 14px;
+                font-style: italic;
+            }
+        }
+        
+    }    
+    @include media-breakpoint-up(xxl){
+        .modal-body{
+            padding: 26px;
+        }   
+        .modal-cross{
+            top: 26px;
+            right: 26px;
+        }        
+    }    
+    @include media-breakpoint-up(xl){
+        &_slider{
+            &_arrow{
+                @include absolutecenter(y);
+                width: 100%;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+    }
+    @include media-breakpoint-down(xxl){
+        &_head{
+            margin-bottom: 15px;
+            &_sub{
+                font-size: 18px;
+            }
+            &_title{
+                font-size: 20px;
+            }
+            &_list{
+                span{
+                    font-size: 16px;
+                }
+                em{
+                    margin-right: 5px;
+                }
+            }
+        }
+        &_map{
+            margin-bottom: 15px;
+        }  
+    }
+    @include media-breakpoint-down(xl){
+        .modal-dialog{
+            max-width: calc(100% - 20px);
+        }
+        &_slider{
+            .swiper{
+                max-width: 100%;
+            }
+            &_arrow{
+                justify-content: center;
+                margin-top: 10px;
+                gap: 5px;
+            }
+            &_box{
+                &_title,&_port{
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+    @include media-breakpoint-down(md){
+        &_head{
+            &_sub{
+                font-size: 16px;
+            }
+            &_title{
+                font-size: 18px;
+            }
+            &_list{
+                span{
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}

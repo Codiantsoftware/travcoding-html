@@ -1,0 +1,70 @@
+/* Loader css */
+.preloader {
+    background-color: #ffffff;
+    z-index: 9999;
+    & .loader {
+      &-container {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%);
+        width: 110px;
+        height: 110px;
+        border: 3px solid #fff;
+        border-radius: 50%;
+        &::before {
+          position: absolute;
+          content: "";
+          display: block;
+          top: 40%;
+          left: 50%;
+          transform: translate(-50%);
+          width: 110px;
+          height: 110px;
+          border-top: 3px solid #FE4D3B;
+          border-radius: 50%;
+          animation: loaderspin 1.8s infinite ease-in-out;
+          -webkit-animation: loaderspin 1.8s infinite ease-in-out;
+        }
+      }
+      &-icon {
+        position: absolute;
+        top: 25%;
+        left: 50%;
+        transform: translate(-50%);
+        width: 40px;
+        & img {
+          animation: loaderpulse alternate 900ms infinite;
+          width: 40px;
+        }
+      }
+    }
+    
+
+@keyframes loaderspin {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+  @-webkit-keyframes loaderspin {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+  @keyframes loaderpulse {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.3);
+    }
+  }
+  
+  
+  }

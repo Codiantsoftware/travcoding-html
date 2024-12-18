@@ -1,0 +1,41 @@
+.commonTabs{
+    margin-bottom: 30px;    
+    .nav{
+        &-item:not(:last-child){
+            margin-right: 60px;
+        }
+        &-link{
+            padding:0;font-size: 22px;color:rgba(color(900),0.5);position: relative;line-height: 1;
+            transition: all 0.5s;
+            &::before{
+                content:"";height: 3px;width: 0;background-color: color(600);
+                position: absolute;left: 0;bottom: -10px;margin: 0 auto;border-radius: 200px;
+                transition: all 0.5s;right: 0;
+            }
+            &.active, &:hover{
+                background-color: transparent; color:color(600);font-family: font(md);
+            }
+        }
+    }    
+    &.border-lg{
+        .nav-link{
+            &.active, &:hover{
+                &::before{width: 60px;}
+            }
+        }
+    }
+    &.border-md{
+        .nav-link{
+            &.active, &:hover{
+                &::before{width: 36px;}
+            }
+        }
+    }
+    @include media-breakpoint-down(xxl){
+        margin-bottom: 20px; 
+        .nav{
+            &-item:not(:last-child){margin-right: 40px;}
+            &-link{font-size: 20px;}
+        }
+    }
+}

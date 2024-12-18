@@ -1,0 +1,43 @@
+[
+    {
+      "title": "Dining",
+      "image": "dining",
+      "description": "The ship has ten eateries, of which five select restaurants offer waterfront seating."
+    },
+    {
+      "title": "Bars & Lounges",
+      "image": "bars-and-lounges",
+      "description": "There are 20 distinct specialty bars"
+    },
+    {
+      "title": "Entertainment & Nightlife",
+      "image": "entertainment-and-nightlife",
+      "description": "The stunning high-tech theatre is the ideal venue to enjoy"
+    },
+    {
+      "title": "Onboard Activities",
+      "image": "dining",
+      "description": "The sculpture is located in the MSC Foundation Centre area"
+    },
+    {
+      "title": "Outdoor Activities",
+      "image": "bars-and-lounges",
+      "description": "The family offering has been expanded with an even bigger"
+    },
+    {
+      "title": "Kids & Teens",
+      "image": "entertainment-and-nightlife",
+      "description": "Children from 1 to 3 years old can enjoy activities and games"
+    },
+    {
+      "title": "Wellness",
+      "image": "wellness",
+      "description": "Enjoying time off on your cruise doesn’t need to mean letting"
+    },
+    {
+      "title": "Shopping",
+      "image": "shopping",
+      "description": "Infuse your cruise with gifts that spark magical memories of"
+    }
+  ]
+  

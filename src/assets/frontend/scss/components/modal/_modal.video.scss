@@ -1,0 +1,27 @@
+.videoModal{
+    &_box{
+        position: relative;
+        video{
+            width: 100%;
+        }
+    }
+    .modal-cross{
+        font-size: 16px;
+        right: 20px;
+        top: 20px;
+    }
+    .modal-body{
+        padding: 0;
+    }
+    .modal-content{
+        overflow: hidden;
+        border-radius: 0px;
+        background-color: transparent;
+        box-shadow: none;
+    }
+    @include media-breakpoint-down(lg){
+        .modal-dialog{
+            max-width: calc(100% - 20px);
+        }
+    }
+}

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="38.5" height="38.5" viewBox="0 0 38.5 38.5">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Path_266914" data-name="Path 266914" d="M0-682.665H38.5v38.5H0Z" transform="translate(0 682.665)" fill="none" stroke="#fe4d3b" stroke-width="1.5"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <path id="Path_266925" data-name="Path 266925" d="M0-682.665H38.5v38.5H0Z" transform="translate(0 682.665)" fill="none" stroke="#000" stroke-width="1.5"/>
+    </clipPath>
+  </defs>
+  <g id="Group_244687" data-name="Group 244687" transform="translate(0 -0.002)">
+    <g id="Group_244685" data-name="Group 244685" transform="translate(0 0.002)" clip-path="url(#clip-path)">
+      <path id="Path_266912" data-name="Path 266912" d="M-12.166,0l-.727,3.228" transform="translate(35.011 1.012)" fill="none" stroke="#fe4d3b" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <path id="Path_266913" data-name="Path 266913" d="M0,0,1.767,2.8" transform="translate(17.278 0.752)" fill="none" stroke="#fe4d3b" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+    </g>
+    <path id="Path_266915" data-name="Path 266915" d="M-46.814,0l-2.8,1.769" transform="translate(74.804 3.166)" fill="none" stroke="#fe4d3b" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+    <g id="Group_244686" data-name="Group 244686" transform="translate(0 0.002)" clip-path="url(#clip-path-2)">
+      <path id="Path_266916" data-name="Path 266916" d="M-237.412-19.018a6.716,6.716,0,0,0-7.1-.237,6.713,6.713,0,0,1-7.094-.239" transform="translate(257.824 31.674)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <path id="Path_266917" data-name="Path 266917" d="M-106.145-11.3l-2.518-.675-3.276,7.324c-1.808,4.048,1.1,8.342,4.895,9.356s8.459-1.244,8.915-5.655l.827-7.98-2.355-.649" transform="translate(118.22 16.688)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <path id="Path_266918" data-name="Path 266918" d="M-30.217,0l-1.806,6.742" transform="translate(41.392 21.398)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <path id="Path_266919" data-name="Path 266919" d="M-99.879,0l3.317,4.448A1.343,1.343,0,0,1-98.071,6.56l-6.657-1.782a1.345,1.345,0,0,1-.247-2.585Z" transform="translate(109.249 28.14)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <path id="Path_266920" data-name="Path 266920" d="M0-3.177a6.678,6.678,0,0,1,4.984.71,6.712,6.712,0,0,0,7.1-.239" transform="translate(20.199 17.872)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <path id="Path_266921" data-name="Path 266921" d="M-36.827-36.973l8.248-2.21,3.273,7.322c1.81,4.051-1.1,8.344-4.893,9.356-3.621.975-8.04-1.046-8.83-5.071" transform="translate(57.523 46.887)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <path id="Path_266922" data-name="Path 266922" d="M0,0,1.806,6.742" transform="translate(27.326 24.382)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <path id="Path_266923" data-name="Path 266923" d="M-60.4,0l-3.317,4.448a1.344,1.344,0,0,0,1.506,2.114l6.657-1.784a1.343,1.343,0,0,0,.25-2.583Z" transform="translate(89.529 31.125)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <path id="Path_266924" data-name="Path 266924" d="M0,0H0" transform="translate(15.233 6.24)" fill="none" stroke="#fe4d3b" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>

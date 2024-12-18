@@ -1,0 +1,62 @@
+// color variables
+$colors: (
+  50:  #ffffff,
+  60:  #F2F4FC,
+  80:  #E5EAF9,
+  100: #B2B7C8,
+  200: #5D5D5D,
+  300: #FCB040,
+  500: #FE4D3B,
+  600: #0248F6,
+  750: #191919,
+  800: #101010,
+  900: #000000,
+);
+
+
+@function color($color) {
+  // checking to see if our $theme-colors map has that $color key
+  @if map-has-key($colors, $color) {
+    // and if so, it will get that color for us in the map-get syntax
+    @return map-get($colors, $color);
+  }
+  // if not, it will give us a helpful error when we compile
+  @error "Unknown `#{$color}` in $colors.";
+  @return null;
+}
+
+// fonts
+$fonts : (
+  lt:  ("Aeonik-Light", Arial,sans-serif),
+  rg:  ("Aeonik-Regular", Arial,sans-serif),
+  md:  ("Aeonik-Medium", Arial,sans-serif),
+  bd:  ("Aeonik-Bold", Arial,sans-serif),
+  cml:  ("CamelliaSignature", Arial,sans-serif),
+);
+
+@function font($font) {
+    // checking to see if our $theme-fonts map has that $font key
+    @if map-has-key($fonts, $font) {
+    // and if so, it will get that font for us in the map-get syntax
+    @return map-get($fonts, $font);
+  }
+    // if not, it will give us a helpful error when we compile
+  @error "Unknown `#{$font}` in $fonts.";
+  @return null;
+}
+
+
+$imageurl: "../images";
+$fonturl: "../fonts";
+
+
+// fields height variable
+$field-height:50px; // field height
+$field-height-xxl:50px;  // field height responsive xl
+$field-height-xl:45px;  // field height responsive lg
+$field-height-lg:40px;  // field height responsive md
+
+// fields padding variable
+$field-padding:15px 22px; //field padding
+$field-padding-xxl:10px 15px;  //field height responsive xl
+$field-padding-lg:6px 10px;  //field height responsive lg
