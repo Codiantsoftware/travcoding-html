@@ -235,6 +235,9 @@ function Listing() {
   return (
     <>
       <main className="listingPage">
+        
+
+        {/* Banner Section @S */}
         <section className="innerBanner" style={{ backgroundImage: `url(${FRONTEND_IMAGE_URL}/inner-banner-bg.webp)` }}>
           <div className="innerBanner_overlay">
             <Image className="w-100 h-100 object-fit-cover" source="inner-banner-overlay.webp" alt="overlay-img" />
@@ -250,6 +253,9 @@ function Listing() {
             <Image source="curve.svg" className="img-fluid w-100" alt="innerbanner-curve-img" />
           </div>
         </section>
+        {/* Banner Section @E */}
+
+        {/* List Section @S */}
         <section className="listSec">
           <Container>
             <div className="listSec_head d-flex justify-content-between">
@@ -260,22 +266,22 @@ function Listing() {
               <div className="listSec_head_center d-flex align-items-center flex-grow-1 flex-wrap">
                 <div className="listSec_head_tags">
                   <span>New York State, USA</span>
-                  <div className="listSec_head_tags_cross" role="button"><em className="icon-cross" /></div>
+                  <div className="listSec_head_tags_cross" role="button" aria-label="Close Button"><em className="icon-cross" /></div>
                 </div>
                 <div className="listSec_head_tags">
                   <span>Los Angeles, California</span>
-                  <div className="listSec_head_tags_cross" role="button"><em className="icon-cross" /></div>
+                  <div className="listSec_head_tags_cross" role="button" aria-label="Close Button"><em className="icon-cross" /></div>
                 </div>
                 <div className="listSec_head_tags">
                   <span>Sep 1 - Sep 30, 2025</span>
-                  <div className="listSec_head_tags_cross" role="button"><em className="icon-cross" /></div>
+                  <div className="listSec_head_tags_cross" role="button" aria-label="Close Button"><em className="icon-cross" /></div>
                 </div>
                 <div role="button" className="listSec_head_link">Clear all</div>
               </div>
               <div className="listSec_head_right">
                 <div className="listSec_head_sort">
                   <div className="select-group">
-                    <span className="select-group-sort">Sort By:</span>
+                    <span className="select-group-sort text-capitalize">Sort By:</span>
                     <SelectPicker options={sortOptions} placeholder="Select" classNamePrefix="customSelect" />
                   </div>
                 </div>
@@ -284,12 +290,12 @@ function Listing() {
             <div className="listSec_body">
               <Row className="g-20">
                 <Col xl={3}>
-                  <div role="button" onClick={handleFilterClick} className="listSec_filterBtn d-xl-none">
+                  <div role="button" aria-label="Filter Button" onClick={handleFilterClick} className="listSec_filterBtn d-xl-none">
                     <em className="icon-filter"/>
                   </div>
                   <div className={`listSec_filter ${showFilter ? "show" : ""}`}>
                     <div className="listSec_filter_head d-flex justify-content-between align-items-center">
-                      <h2 className="listSec_filter_title font-bd">Filter your search</h2>
+                      <h2 className="listSec_filter_title font-bd text-capitalize">Filter your search</h2>
                       <div role="button" className="listSec_filter_clear font-bd">CLEAR ALL</div>
                     </div>
                     <div className="listSec_filter_body">
@@ -405,7 +411,7 @@ function Listing() {
                     {cards.map((card) => (
                       <div className="listSec_card_box" key={card.id}>
                         <div className="listSec_card_lft">
-                          <div role="button" className={`listSec_card_like ${likedCards[card.id] ? "active" : ""}`} onClick={() => handleLike(card.id)} >
+                          <div role="button" aria-label="Like Button" className={`listSec_card_like ${likedCards[card.id] ? "active" : ""}`} onClick={() => handleLike(card.id)} >
                             <em className={likedCards[card.id] ? "icon-heart-fill" : "icon-heart"} />
                           </div>
                           <Swiper navigation={true} modules={[Navigation]} loop={true} className="h-100">
@@ -413,7 +419,7 @@ function Listing() {
                               <SwiperSlide key={`${card.id}-${index}`}>
                                 <div className="listSec_card_slider h-100">
                                   {card.video[index] ? (
-                                    <div role="button" className="videoBox" onClick={handleVideosShow}>
+                                    <div role="button" aria-label="Video Button" className="videoBox" onClick={handleVideosShow}>
                                       <em className="icon-play" />
                                     </div>
                                   ) : (<></>)}
@@ -514,7 +520,10 @@ function Listing() {
             </div>
           </Container>
         </section>
+        {/* Listing Section @E */}
       </main>
+
+      {/* Modals */}
       <Modal show={showPortsModal} className="mapModal" handleClose={handlePortsClose} size="lg">
         <MapsModal/>
       </Modal>

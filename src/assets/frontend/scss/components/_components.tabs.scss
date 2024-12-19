@@ -38,4 +38,46 @@
             &-link{font-size: 20px;}
         }
     }
+
+    @include media-breakpoint-down(xl){
+        margin-bottom: 10px; 
+        white-space:nowrap;overflow-x:auto;overflow-y:hidden;display:block;padding-bottom:10px;
+        -webkit-scrollbar-thumb{background-color: color(600);}
+        .nav{
+            &-item{
+                display: inline-block;
+                &:not(:last-child){margin-right: 20px;}
+            }
+            &-link{font-size: 18px;}
+        }
+    }
+    @include media-breakpoint-down(lg){
+        .nav{
+            &-item:not(:last-child){margin-right: 15px;}
+            &-link{font-size: 16px;}
+        }
+        &.border-lg{
+            .nav-link{
+                &.active, &:hover{
+                    &::before{width: 40px;}
+                }
+            }
+        }
+        &.border-md{
+            .nav-link{
+                &.active, &:hover{
+                    &::before{width: 25px;}
+                }
+            }
+        }
+    }
+    @include media-breakpoint-down(sm){
+        &.border-lg{
+            .nav-link{
+                &.active, &:hover{
+                    &::before{width: 30px;}
+                }
+            }
+        }
+    }
 }

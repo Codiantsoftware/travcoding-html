@@ -34,7 +34,7 @@ export function Button({type = "", label = "" , extraClass = "", showIcon = fals
         }, 800);
     }; 
     return (
-        <BsButton  ref={buttonRef} type={type} className={`${extraClass}`} {...props}>
+        <BsButton  ref={buttonRef} type={type} className={`ripple-effect ${extraClass}`} {...props}>
             {showIcon && iconPosition === "left" && (
                 <em className={`icon-${iconClass} ${iconExtraClass}`} />
             )}

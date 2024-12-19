@@ -35,7 +35,13 @@
         margin-left: 185px;
         &_list{
             margin-right: 30px;
-            li{   position: relative;
+            .callField{
+                display: none;
+            }
+            .phoneField{
+                display: flex;
+            }
+            li{   position: relative; 
                 a,span{
                     color: color(800);
                     font-family: font(md);
@@ -181,6 +187,200 @@
                         margin-right: 20px;
                         &::after{
                             right: -10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @include media-breakpoint-down(xl) {
+        &.headerTransparent{
+            .navbar {
+                &-toggler {
+                    &-icon{
+                        background-color: color(50);
+                    }
+                }
+                .nav-link{
+                    color: color(900);
+                }
+            }
+        }
+        .navbar {
+            &-nav{
+                padding: 15px;
+            }
+            &-brand{
+                max-width: 160px;margin-right: 15px;
+            }
+            .nav-item {
+                &:not(:last-child) {
+                    margin-inline-end: 0;
+                    margin-bottom: 10px;
+                }
+            }
+            &-toggler {
+                outline: none; margin-left:15px; order: 2; position: relative;
+                border: 0; padding: 3px; width: 24px; height: 20px; border-radius: 0;
+                &:focus{
+                    box-shadow: none;
+                }
+                &-icon{
+                    background-image: none;
+                    position: absolute; 
+                    width: 100%;
+                    height: 2px;
+                    top: 9px; left: 0;
+                    background-color: color(900);
+                    &:first-child{
+                        top: 10px; bottom: auto; transform: rotate(45deg);
+                    }
+                    &:nth-child(2){
+                        opacity: 0;
+                        visibility: hidden;
+                    }
+                    &:last-child{
+                        top: auto; transform: rotate(-45deg);
+                        bottom: 8px;
+                    }
+                }
+                &.collapsed{
+                    .navbar-toggler-icon{
+                        &:first-child{
+                            top: 0; transform: rotate(0);
+                        }
+                        &:nth-child(2){
+                            opacity: 1;
+                            visibility: visible;
+                        }
+                        &:last-child{
+                            bottom: 0; transform: rotate(0);
+                        }
+                    }
+                }
+            }
+            &-collapse {
+                position: fixed;
+                width: 100%;
+                z-index: 9;
+                left: 0;
+                right: 0;
+                top: 55px;
+                background-color: color(50);
+                transition: all 0.5s ease;
+            }
+            .collapse{
+                &:not(.show){
+                    opacity: 0;
+                }
+                .show{
+                    height: 100%;
+                    opacity: 1;
+                    visibility: visible;  
+                    transition: all 0.5s ease;
+                }
+            }
+        } 
+        &_right{
+            margin-left: 0;
+            &_list{
+                margin-right: 10px;
+                li{  
+                    &:not(:last-child){
+                        margin-right: 20px;
+                        &::after{
+                            right: -10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @include media-breakpoint-down(md) {
+        .navbar {
+            &-brand{
+                max-width: 150px;
+            }
+            &-collapse {
+                top: 48px;
+            }
+        } 
+    }
+    @include media-breakpoint-down(sm) {
+        &_inner{
+            padding: 0 10px;
+        }
+        .navbar {
+            &-brand{
+                max-width: 125px;margin-right: 10px;
+            }
+            &-toggler{
+                margin-left: 10px;
+                width: 20px;
+                height: 14px;
+                &-icon{
+                    top: 6px;
+                    &:first-child{
+                        top: 4px;
+                    }
+                }
+            }
+        }
+        &_right{
+            &_list{
+                &:first-child{
+                    display: none;
+                }
+                li{
+                    &:not(:last-child){
+                        margin-right: 18px;
+                        &:after{
+                            height: 16px;
+                        }
+                    }
+                    a{
+                        font-size: 13px;
+                    }
+                }
+            }
+            .btn{
+                height: 32px;
+                padding: 4px 8px;
+            }
+        } 
+        &_profile{
+            &_name{
+                display: none;
+            }
+        }
+    }
+    @media(max-width: 440px){
+        &_inner{
+            padding: 0 6px;
+        }
+        .navbar {
+            padding: 6px 0px;
+            &-brand{
+                // max-width: 110px;
+                margin-right: 5px;
+            }
+        }
+        &_right{
+            &_list{
+                .callField{
+                    display: flex;
+                    em{
+                        font-size: 18px;
+                    }
+                }
+                .phoneField, .signUp{
+                    display: none;
+                }
+                li{
+                    &:not(:last-child){
+                        margin-right: 6px;
+                        &:after{
+                            display: none;
                         }
                     }
                 }

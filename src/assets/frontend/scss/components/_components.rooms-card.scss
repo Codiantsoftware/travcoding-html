@@ -1,0 +1,247 @@
+.roomsCard{
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 15px rgba(color(900), 6%);
+    gap: 25px;
+    &_img{
+        border-radius: 5px;
+        overflow: hidden;
+        flex: 0 0 390px;
+        height: 280px;
+        .swiper{
+            .swiper-button-prev,.swiper-button-next{
+                width: 26px;
+                height: 26px;
+                border-radius: 50%;
+                color: rgba(color(50), 0.70);
+                border: 1.5px solid rgba(color(50), 0.70);
+                background-color: rgba(color(900),0.20);
+                &::after{
+                    font-family: "icomoon";
+                    font-size: 10px;
+                }
+            }
+            .swiper-button-prev{
+                &::after{
+                    content: '\e900';
+                }
+            }
+            .swiper-button-next{
+                &::after{
+                    content: '\e906';
+                }
+            }
+        }   
+    }
+    &_right{
+        padding-right: 10px;
+        flex: 1;
+        .roomsCardInfo{
+            &_title{
+                font-size: 20px;
+                margin-bottom: 8px;
+                line-height: 1.25;
+            }
+            &_category{
+                flex-shrink: 0;
+                margin-left: 10px;            
+               &_title{
+                font-size: 18px;
+                margin-bottom: 10px;
+                span{
+                    color: color(600);
+                }
+               }
+               p{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                em{
+                    font-size: 18px;
+                }
+            }
+            }
+        }
+    }
+    &_body{
+        margin-block: 12px 20px;
+        ul{
+            padding-left: 20px;
+            li{
+                line-height: 1.4;
+                color: rgba(color(900),0.7);
+                &::marker{
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+    &_action{
+        &_price{
+            color: color(500);
+            font-size: 26px;
+            line-height: 1.1;
+            font-family: font(bd);
+            margin-bottom: 6px;
+            sub{
+                font-size: 14px;
+                font-family: font(rg);
+                color: color(800);
+                text-transform: uppercase;
+                line-height: 1.2;
+                top: 0;
+            }
+        }
+        p{
+            font-size: 12px;
+            line-height: 1.16;
+            color: rgba(color(900),0.6);
+        }
+        &_links{
+            margin-right: 20px;
+            font-size: 16px;
+            color: color(600);
+        }
+    }
+    @media screen and (max-width: 1599px){
+        gap: 18px;
+        &_img{
+            flex: 0 0 360px;
+            height: 250px;
+        }
+    }
+    @include media-breakpoint-down(xxl){
+        gap: 14px;
+        &_img{
+            flex: 0 0 280px;
+            height: 210px;
+        }
+        &_right{
+            padding-right: 0px;
+            .roomsCardInfo{
+                &_title{
+                    font-size: 18px;
+                }
+                &_category{
+                    margin-left: 0;  
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap:10px;
+                    margin-top: 6px;          
+                    &_title{
+                        font-size: 15px;
+                        margin-bottom: 0;
+                    }
+                    p{
+                        em{
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+        &_body{
+            margin-block: 10px 15px;
+            ul{
+                padding-left: 20px;
+                li{
+                    &::marker{
+                        font-size: 17px;
+                    }
+                }
+            }
+        }
+        &_action{
+            &_price{
+                font-size: 22px;
+                margin-bottom: 6px;
+                sub{
+                    font-size: 12px;
+                }
+            }
+            &_links{
+                margin-right: 12px;
+                font-size: 15px;
+            }
+            .btn{
+                font-size: 13px;
+                padding: 10px 15px;
+                height: 40px;
+            }
+        }
+    }
+    @include media-breakpoint-down(xl){
+        &_img{
+            flex: 0 0 250px;
+            height: 170px;
+        }
+    }
+    @include media-breakpoint-down(lg){
+        &_body{
+            margin-block: 10px;
+        }
+        &_action{
+            &_price{
+                font-size: 20px;
+            }
+            .btn{
+                font-size: 12px;
+                padding: 8px 12px;
+                height: 36px;
+            }
+        }
+    }
+    @include media-breakpoint-down(md){
+        flex-wrap: wrap;
+        gap: 10px;
+        &_img{
+            flex: 0 0 100%;
+        }
+        &_body{
+            margin-block: 10px;
+        }
+        &_action{
+            &_price{
+                font-size: 18px;
+            }
+        }
+    }
+    @include media-breakpoint-down(sm){
+        &_img{
+            height: 160px;
+        }
+        &_right{
+            .roomsCardInfo{
+                &_title{
+                    font-size: 16px;
+                    margin-bottom: 6px;
+                }
+            }
+        }
+        &_body{
+            ul{
+                li{
+                    &::marker{
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+        &_action{
+            &_links{
+                margin-right: 10px;
+                font-size: 14px;
+            }
+            &_price{
+                font-size: 16px;
+                sub{font-size: 10px;}
+            }
+        }
+    }
+}
+.roomsCardList{
+    display: flex; flex-direction: column;
+    gap: 20px;
+}

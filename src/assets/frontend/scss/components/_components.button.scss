@@ -1,3 +1,4 @@
+@use 'sass:map';
 // variables
 $height: 50px;
 $white-color: color(50);
@@ -8,25 +9,22 @@ $btn-load: #DFE1E8;
 $btn-dark: color(800);
 
 $btnColors: (
-  primary: (
-    clr: $white-color,
+  primary: (clr: $white-color,
     bg: $btn-primary,
   ),
-  secondary: (
-    clr: $white-color,
+  secondary: (clr: $white-color,
     bg: $btn-secondary,
   ),
-  light: (
-    clr: color(750),
+  light: (clr: color(750),
     bg: $btn-light,
   ),
-  grays: (
-    clr: $btn-dark,
+  grays: (clr: $btn-dark,
     bg: $btn-load,
   ),
 );
+
 .btn {
-  height: $height;  
+  height: $height;
   padding: 15px 30px;
   font-size: 16px;
   font-family: font(md);
@@ -37,80 +35,93 @@ $btnColors: (
   transition: all 0.3s ease-in-out;
   em {
     font-size: 15px;
-      }
-  &-lg{
+  }
+  &-lg {
     height: 60px;
     font-size: 18px;
-    em{
+    em {
       font-size: 16px;
     }
   }
-  &-sm{
+  &-sm {
     height: 44px
   }
   @each $key, $clrValue in $btnColors {
     // solid button
     &-#{$key} {
-      @include button-variant(
-        map-get($clrValue, clr),
-        map-get($clrValue, bg),
-        map-get($clrValue, bg)
-      );
+      @include button-variant(map.get($clrValue, clr),
+        map.get($clrValue, bg),
+        map.get($clrValue, bg));
     }
     // outline button
     &-outline-#{$key} {
-      @include button-outline-variant(
-        map-get($clrValue, bg),
-        map-get($clrValue, clr),
-        map-get($clrValue, bg)
-      );
+      @include button-outline-variant(map.get($clrValue, bg),
+        map.get($clrValue, clr),
+        map.get($clrValue, bg));
     }
   }
+
   @include media-breakpoint-down(xxl) {
-    padding: 10px 20px;height: 45px;font-size: 15px;
+    padding: 10px 20px;
+    height: 45px;
+    font-size: 15px;
+
     em {
       font-size: 13px;
     }
-    &-sm{
-      height: 40px;padding: 8px 16px;
+
+    &-sm {
+      height: 40px;
+      padding: 8px 16px;
     }
   }
+
   @include media-breakpoint-down(lg) {
     em {
       font-size: 12px;
     }
   }
+
   @include media-breakpoint-down(md) {
     height: 40px;
     padding: 7px 15px;
     font-size: 14px;
-    &-sm{
-      height: 36px;padding: 5px 10px;font-size: 13px;
+
+    &-sm {
+      height: 36px;
+      padding: 5px 10px;
+      font-size: 13px;
     }
   }
+
   @include media-breakpoint-down(sm) {
-    height: 36px;
-    &.text-uppercase{
+    // height: 36px;
+
+    &.text-uppercase {
       font-size: 13px;
     }
   }
 }
+
 // Ripple Effect
 @keyframes ripple {
   0% {
     transform: scale(4);
   }
+
   100% {
     opacity: 0;
     transform: scale(40);
   }
 }
+
 .ripple-effect-dark,
 .ripple-effect {
   overflow: hidden;
   position: relative;
   z-index: 1;
 }
+
 .ripple-effect span.ripple-overlay,
 .ripple-effect-dark span.ripple-overlay {
   animation: ripple 0.9s;
@@ -124,6 +135,7 @@ $btnColors: (
   pointer-events: none;
   z-index: 0;
 }
+
 .ripple-effect-dark span.ripple-overlay {
   background: color(900);
   opacity: 0.07;

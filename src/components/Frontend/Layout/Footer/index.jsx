@@ -58,7 +58,7 @@ export function Footer() {
                                 <Image imageFor="frontend" source="logo.svg" alt="travcoding-logo"/>
                                 <h2 className="footer_top_title mb-2 mb-sm-3">Have a question or
                                 need <span>assistance?</span></h2>
-                                <p className="mb-0 d-flex align-items-center justify-content-sm-end">Call us at: <a href="tel: 012  345 6789" className="ms-1"> 012 345 6789</a></p>
+                                <p className="mb-0 d-flex align-items-center justify-content-sm-end">Call us at: <a href="tel:0123456789" className="ms-1"> 012 345 6789</a></p>
                             </Col>
                         </Row>
                     </div>
@@ -119,15 +119,15 @@ export function Footer() {
                             </li>
                         </ul>
                         <ul className="footer_bottom_right list-unstyled mb-0 d-flex align-items-center">
-                            <li><Link to="#!" aria-label="search"><em className="icon-facebook" /></Link></li>
-                            <li><Link to="#!" aria-label="search"><em className="icon-instagram" /></Link></li>
-                            <li><Link to="#!" aria-label="search"><em className="icon-linkedin" /></Link></li>
-                            <li><Link to="#!" aria-label="search"><em className="icon-youtube" /></Link></li>
-                            <li><Link to="#!" aria-label="search"><em className="icon-twitter" /></Link></li>
+                            <li><Link to="#!" aria-label="facebook"><em className="icon-facebook" /></Link></li>
+                            <li><Link to="#!" aria-label="instagram"><em className="icon-instagram" /></Link></li>
+                            <li><Link to="#!" aria-label="linkedin"><em className="icon-linkedin" /></Link></li>
+                            <li><Link to="#!" aria-label="youtube"><em className="icon-youtube" /></Link></li>
+                            <li><Link to="#!" aria-label="twitter"><em className="icon-twitter" /></Link></li>
                         </ul>
                     </div>
                 </Container>
-                <Link as="button" className= {`footer_scrollBtn ${isVisible ? "show" : ""}`}  onClick={scrollToTop} ><em className="icon-arrow-top" /></Link>
+                <Link as="button" aria-label="scroll to top" className= {`footer_scrollBtn ${isVisible ? "show" : ""}`}  onClick={scrollToTop} ><em className="icon-arrow-top" /></Link>
             </div>
         </>
     );

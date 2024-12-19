@@ -11,3 +11,4 @@ export { CruiseModal } from './CruiseModal/index.jsx';
 export { DatesModal } from './DatesModal/index.jsx';
 export { VideosModal } from './VideosModal/index.jsx';
 export { ViewsModal } from './ViewsModal/index.jsx';
+export { RoomsCard } from './RoomsCard/index.jsx';

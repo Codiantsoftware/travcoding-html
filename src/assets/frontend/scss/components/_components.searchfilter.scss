@@ -1,31 +1,62 @@
 
 // banner search filter
 .searchFilter {
-  padding: 20px 30px 26px;
-  border-radius: 5px;
-  z-index: 1;
-  box-shadow: 0 6px 45px rgba($color: color(900), $alpha: 0.24);
-
-  &_inner {
-    gap: 12px 10px;
-    flex-wrap: wrap;
-  }
-
-  &_title {
-    font-size: 20px;
-    margin-bottom: 14px;
-  }
-
-  .fieldicon {
-    &-right {
-      &.active {
-        color: color(800);
+    padding: 20px 30px 26px;
+    border-radius: 5px;
+    z-index: 1;
+    box-shadow: 0 6px 45px rgba($color: color(900), $alpha: 0.24);
+  
+    &_inner {
+      gap: 12px 10px;
+      flex-wrap: wrap;
+    }
+  
+    &_title {
+      font-size: 20px;
+      margin-bottom: 14px;
+    }
+  
+    .fieldicon {
+      &-right {
+        &.active {
+          color: color(800);
+        }
+      }
+    }
+  
+    @include media-breakpoint-down(xl) {
+      padding: 20px;
+    }
+  
+    @include media-breakpoint-down(lg) {
+      padding: 15px;
+  
+      &_title {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+    }
+  
+    @include media-breakpoint-up(md) {
+      .form-group {
+        flex: 1;
+      }
+    }
+  
+    @include media-breakpoint-between(sm, md) {
+  
+      .form-group,
+      &_btn {
+        width: 49%;
+      }
+    }
+  
+    @include media-breakpoint-down(sm) {
+  
+      .form-group,
+      &_btn {
+        width: 100%;
       }
     }
   }
-  @include media-breakpoint-up(md) {
-    .form-group {
-      flex: 1;
-    }
-  }
-}
+  

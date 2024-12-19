@@ -1,0 +1,43 @@
+[
+    {
+      "icon": "built-year",
+      "text": "Built Year: 2021"
+    },
+    {
+      "icon": "ship-length",
+      "text": "Ship Length: 1112 ft (338.9 m)"
+    },
+    {
+      "icon": "capacity",
+      "text": "Passenger Capacity: 5,877"
+    },
+    {
+      "icon": "dining",
+      "text": "Dining / Restaurants: 2"
+    },
+    {
+      "icon": "staterooms",
+      "text": "Number of Staterooms: 2,270"
+    },
+    {
+      "icon": "spa",
+      "text": "Spa: Yes"
+    },
+    {
+      "icon": "bars",
+      "text": "Bars / Lounges: 3"
+    },
+    {
+      "icon": "pool",
+      "text": "Pool: Yes"
+    },
+    {
+      "icon": "suites",
+      "text": "Number of Suites: 221"
+    },
+    {
+      "icon": "fitness-center",
+      "text": "Fitness Center: Yes"
+    }
+]
+  

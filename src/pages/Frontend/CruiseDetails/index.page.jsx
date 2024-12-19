@@ -1,19 +1,22 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Image } from '../../../components/CommonElement';
-import { Col, Container, Nav, Row, } from 'react-bootstrap';
-import { Button, CruiseModal, DatesModal, MapsModal, Modal, SideModal, VideosModal, ViewsModal } from '../../../components/Frontend';
+import { Col, Container, Dropdown, Nav, Row, Tab, Tabs } from 'react-bootstrap';
+import { Button, CruiseModal, DatesModal, MapsModal, Modal, RoomsCard, SideModal, VideosModal, ViewsModal } from '../../../components/Frontend';
 import { Link } from 'react-router-dom';
 import highlightsData from "./highlightsData.json";
+import roomsData from "./roomsData.json";
+import shipFacts from "./shipFacts.json";
 
 const CruiseDetails = () => {
   const prevRefSwiper = useRef(null);
   const nextRefSwiper = useRef(null);
 
-    //Modal Map
+  const [deckPlan, setDeckPlan] = useState("Deck 19");
+        //Modal Map
     const [showPortsModal, setShowPortsModal] = useState(false);
     const handlePortsShow = () => setShowPortsModal(true);
     const handlePortsClose = () => setShowPortsModal(false);
@@ -76,6 +79,15 @@ const CruiseDetails = () => {
       };
     }, []);
 
+
+  const bannerSlide = [
+    "details-img-1",
+    "details-img-2",
+    "details-img-3",
+    "details-img-1",
+    "details-img-2",
+    "details-img-3",
+  ];
     
   return (
     <>
@@ -120,24 +132,11 @@ const CruiseDetails = () => {
             }
           }}
         >
-          <SwiperSlide>
-            <Image source="details-img-1.webp" alt="details-banner" className="img-fluid" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image source="details-img-2.webp" alt="details-banner" className="img-fluid" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image source="details-img-3.webp" alt="details-banner" className="img-fluid" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image source="details-img-1.webp" alt="details-banner" className="img-fluid" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image source="details-img-2.webp" alt="details-banner" className="img-fluid" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image source="details-img-3.webp" alt="details-banner" className="img-fluid" />
-          </SwiperSlide>
+           {bannerSlide.map((source, index) => (
+              <SwiperSlide key={index}>
+                <Image source={`${source}.webp`} alt={`banner-${source}`} className="img-fluid" />
+              </SwiperSlide>
+            ))}
         </Swiper>
         <div className='swiper-navigation'>
           <button ref={prevRefSwiper} className="swiper-button-prev"></button>
@@ -276,6 +275,137 @@ const CruiseDetails = () => {
                 </Row>
                 <p className='notePara text-900-80'>Note: Details, ship facts, policies, images and descriptions are gathered for information only and subject to change without notice. Images and descriptions displayed are subject to change at any time without notice. Actual details, design and configuration may vary.</p>
               </div>
+              <div className='detailsCard' id='deckplans'>
+                <div className='deskPlanSec'>
+                  <Row className='g-2'>
+                    <Col lg={6}>
+                      <div className='detailsCard_head'>
+                        <h2 className='detailsCard_head_title font-bd'>Deck Plans</h2>
+                      </div>
+                      <div className='deskPlanSec_left'>
+                        <Image source="deck-plan.webp" className="img-fluid" alt="deck-plan-img" />
+                        <div className='deskPlanSec_left_card'>
+                          <h3 className='deskPlanSec_left_card_title font-bd'>Deck Description</h3>
+                          <p className='m-0'>MSC Aurea Bar, Top 19 Exclusive Solarium, Adventure Trail, Horizon Bar, Staterooms.</p>
+                        </div>
+                        <div className='deskPlanSec_left_card'>
+                          <h3 className='deskPlanSec_left_card_title font-bd'>Category Codes</h3>
+                          <div className='categoryCodes font-md'>
+                              <span style={{color: '#DAD7D2'}}>YIN</span>
+                              <span style={{color: '#B9B3A3'}}>YC1</span>
+                              <span style={{color: '#B9B3A3'}}>YCP</span>
+                              <span style={{color: '#4E4138'}}>YC4</span>
+                          </div>
+                        </div>
+                        <div className='deskPlanSec_left_card'>
+                          <h3 className='deskPlanSec_left_card_title font-bd'>Deck Plan Legends (Key to Symbols)</h3>
+                          <ul className='keySymbols list-unstyled'>
+                            <li><span className='icon-sofa-bed'></span>Sofa bed</li>
+                            <li><span className='icon-double-sofa-bed'></span>Double sofa bed</li>
+                            <li><span className='icon-bed'></span>3rd bed is a pullman bed</li>
+                            <li><span className='icon-pullbed'></span>3rd & 4th beds are pullman beds</li>
+                            <li><span className='icon-bunk-bed'></span>Sofa converts into bunk bed (3rd and 4th beds)</li>
+                            <li><span className='icon-obst-cabin'></span>Cabins with obstructed views</li>
+                            <li><span className='icon-bed' style={{color: '#93D5E1'}}></span>Balcony with half glass half metal balustrade </li>
+                            <li><span className='icon-bed' style={{color: '#DFDBDD'}}></span>Balcony with metal balustrade</li>
+                            <li><span className='icon-bed' style={{color: '#A8ACAF'}}></span>Balcony with partial or lateral view balustrade</li>
+                            <li><span className='icon-terrace-bath'></span>Terrace with whirlpool bath</li>
+                            <li><span className='icon-bathtub-shower'></span>Cabin with bathrtub and shower</li>
+                            <li><span className='icon-whirlpool'></span>Balcony with whirlpool bath</li>
+                            <li><span className='icon-terrace'></span>Cabin with terrace</li>
+                            <li><span className='icon-staterooms'></span>Connecting staterooms</li>
+                            <li><span className='icon-guest-cabin'></span>Cabin for guests with reduced mobility</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </Col>
+                    <Col lg={6}>
+                      <div ref={deckPreviewRef} className='deskPlanSec_right text-center bg-white'>
+                        <div className='deskPlanSec_right_head text-center position-relative'>
+                          <p>Showing Deck plans for:</p>
+                          <Dropdown>
+                            <Dropdown.Toggle as="span" role='button' variant="success" id="dropdown-basic">
+                              {deckPlan}
+                            </Dropdown.Toggle>
+
+                            <Dropdown.Menu>
+                              <Dropdown.Item className={deckPlan === 'Deck 17' ? 'active' : ''} onClick={() => setDeckPlan('Deck 17')}>Deck 17</Dropdown.Item>
+                              <Dropdown.Item className={deckPlan === 'Deck 18' ? 'active' : ''} onClick={() => setDeckPlan('Deck 18')}>Deck 18</Dropdown.Item>
+                              <Dropdown.Item className={deckPlan === 'Deck 19' ? 'active' : ''} onClick={() => setDeckPlan('Deck 19')}>Deck 19</Dropdown.Item>
+                            </Dropdown.Menu>
+                          </Dropdown>
+                          <div onClick={handleFullscreen} className={`fullScreen ${isFullscreen ? 'fullScreen-active' : ''}`} role='button'>
+                            <em className={`${isFullscreen ? 'icon-exit-full-screen' : 'icon-full-screen'}`} />
+                          </div>
+                        </div>
+                        <div className='bg-white'>
+                          <Image source="deck-preview-full.webp" className="img-fluid" alt="deck-preview-img" />
+                        </div>
+                      </div>
+                    </Col>
+                  </Row>
+                </div>
+                <p className='notePara text-900-80'>Note: Deck names, descriptions, key legends, deck plans, onboard activity places, restaurants, bars and other entertainment places are informational only, details may vary and subject to change without notice. Furniture arrangements or design details may vary and subject to change without notice.</p>
+              </div>
+              <div className='detailsCard' id='staterooms'>
+                <div className='detailsCard_head'>
+                  <h2 className='detailsCard_head_title font-bd'>Staterooms</h2>
+                </div>
+                <div className=''>
+                  <p className='text-900-80 mb-3 mb-xl-4'>Availability & prices can change frequently, please continue with the booking to check latest availability & prices. Final tax amount might change if prices are adjusted.</p>
+                  <Tabs defaultActiveKey="Suite" variant="pills" className="commonTabs border-md">
+                    <Tab eventKey="Suite" title="Suite">
+                      <div className='roomsCardList'>
+                      {roomsData.map((room) => (
+                        <RoomsCard key={room.id} room={room} handleVideosShow={handleVideosShow} />
+                      ))}
+                      </div>
+                    </Tab>
+                    <Tab eventKey="Balcony" title="Balcony">
+                      <div className='roomsCardList'>
+                      {([...roomsData]).reverse().map((room) => (
+                        <RoomsCard key={room.id} room={room} handleVideosShow={handleVideosShow} />
+                      ))}
+                      </div>
+                    </Tab>
+                    <Tab eventKey="Outside" title="Outside" >
+                      <div className='roomsCardList'>
+                      {roomsData.map((room) => (
+                        <RoomsCard key={room.id} room={room} handleVideosShow={handleVideosShow} />
+                      ))}
+                      </div>
+                    </Tab>
+                    <Tab eventKey="Inside" title="Inside" >
+                      <div className='roomsCardList'>
+                      {([...roomsData]).reverse().map((room) => (
+                        <RoomsCard key={room.id} room={room} handleVideosShow={handleVideosShow} />
+                      ))}
+                      </div>
+                    </Tab>
+                  </Tabs>
+                </div>
+                <p className='notePara text-900-80'>Note: Category & stateroom name and descriptions displayed are subject to change at any time. Photos shown are samples only and actual details may vary. Some staterooms in the same category may have different furniture arrangements. Amenities mentioned are subject to availability, may vary on each ship and subject to change at any time.</p>
+              </div>
+              <div className='detailsCard' id='shipFacts'>
+                <div className='detailsCard_head'>
+                  <h2 className='detailsCard_head_title font-bd'>Ship Facts</h2>
+                </div>
+                <div className='shipFactsSec'>
+                  <Row className='g-xl-4 g-3'>
+                    {shipFacts.map((fact, index) => (
+                      <Col key={index}>
+                        <div className="shipFactsBox">
+                          <span className="shipFactsBox_icon">
+                            <Image source={`ship-facts/${fact.icon}.svg`} alt={`${fact.icon}-icon`} />
+                          </span>
+                          <p>{fact.text}</p>
+                        </div>
+                      </Col>
+                    ))}
+                  </Row>
+                </div>
+                <p className='notePara text-900-80'>Note: Details, ship facts, policies, images and descriptions are gathered for information only and subject to change without notice. Images and descriptions displayed are subject to change at any time without notice. Actual details, design and configuration may vary.</p>
+              </div>
             </Col>
             <Col lg={4} className='order-1 order-lg-2 mobileStickey'>
               <div className='bookingAction text-center'>
@@ -287,7 +417,7 @@ const CruiseDetails = () => {
           </Row>
         </Container>
       </section>
-    </main>
+    </main>  
     <Modal show={showPortsModal} className="mapModal" handleClose={handlePortsClose} size="lg">
       <MapsModal/>
     </Modal>

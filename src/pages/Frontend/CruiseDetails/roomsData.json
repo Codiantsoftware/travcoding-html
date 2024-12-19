@@ -1,0 +1,35 @@
+[
+    {
+      "id": 1,
+      "images": [
+        { "src": "select-room-1.webp", "hasVideo": false },
+        { "src": "select-room-2.webp", "hasVideo": false }
+      ],
+      "deck": "Deck 19, Deck 18, Deck 16",
+      "maxGuests": 2,
+      "category": "YIN",
+      "description": [
+        "Surface approx. 151 sq.ft., deck 5-10",
+        "Bathroom with shower, vanity area with hairdryer",
+        "Comfortable double or single beds (on request*)",
+        "Interactive TV, telephone, wifi connection available (for a fee), safe and minibar"
+      ]
+    },
+    {
+      "id": 2,
+      "images": [
+        { "src": "select-room-2.webp", "hasVideo": true },
+        { "src": "select-room.webp", "hasVideo": false }
+      ],
+      "deck": "Piano Deck",
+      "maxGuests": 2,
+      "category": "YC3",
+      "description": [
+        "Surface approx. 151 sq.ft., deck 5-10",
+        "Bathroom with shower, vanity area with hairdryer",
+        "Comfortable double or single beds (on request*)",
+        "Interactive TV, telephone, wifi connection available (for a fee), safe and minibar"
+      ]
+    }
+  ]
+  

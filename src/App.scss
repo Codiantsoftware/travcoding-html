@@ -2,7 +2,7 @@
 .preloader {
     background-color: #ffffff;
     z-index: 9999;
-    & .loader {
+     .loader {
       &-container {
         position: absolute;
         top: 40%;
@@ -29,15 +29,33 @@
       }
       &-icon {
         position: absolute;
-        top: 25%;
+        top: 22%;
         left: 50%;
         transform: translate(-50%);
-        width: 40px;
-        & img {
+         img {
           animation: loaderpulse alternate 900ms infinite;
           width: 40px;
         }
       }
+    }
+    @media (max-width: 767px) {
+      .loader {
+        &-container {
+          width: 80px;
+          height: 80px;
+          &::before {
+            width: 80px;
+            height: 80px;
+          }
+        }
+        &-icon {
+          img {
+
+            width: 28px;
+          }
+        }
+      }
+  
     }
     
 
