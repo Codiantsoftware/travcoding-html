@@ -40,19 +40,16 @@ a {
   }
 }
 
-// container start
+// container
 .container {
   @media(min-width: 1600px) {
     max-width: 1542px;
   }
-
   @media(max-width: 1599px) {
     max-width: 100%;
   }
-
 }
 
-// container end
 
 // common padding
 .py-70 {
@@ -305,11 +302,5 @@ a {
   &:hover {
     color: #2764ff;
   }
-}
-
-.react-datepicker,
-.react-datepicker-popper {
-  z-index: 1050 !important;
-  /* Ensure it's above the Swiper */
 }
 

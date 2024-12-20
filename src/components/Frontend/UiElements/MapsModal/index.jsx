@@ -81,10 +81,10 @@ export function MapsModal() {
                     </SwiperSlide>
                 </Swiper>
                 <div className="mapModal_slider_arrow">
-                    <div role="button" className="swiper-prev">
+                    <div role="button" className="swiper-prev" aria-label="Arrow Button">
                         <em className="icon-chevron-left" />
                     </div>
-                    <div role="button" className="swiper-next">
+                    <div role="button" className="swiper-next" aria-label="Arrow Button">
                         <em className="icon-chevron-right" />
                     </div>
                 </div>

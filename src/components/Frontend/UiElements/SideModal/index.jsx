@@ -14,7 +14,7 @@ export function SideModal({ extraClass = "", children, showModal = false, onClos
     return (
         <>
             <div className={`sideModal ${showModal ? "show" : ""} ${extraClass}`}>
-                {closeBtn ? (<><div role="button" className="sideModal_close" onClick={onClose}>
+                {closeBtn ? (<><div role="button" aria-label="close-btn" className="sideModal_close" onClick={onClose}>
                     <em className="icon-cross" />
                 </div></>) : (<></>)}
                 {children}

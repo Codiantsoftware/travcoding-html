@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import { format } from "date-fns";
 
-export function DateSelectPicker({placeholderText=""}) {    
+export function DateSelectPicker({placeholderText="",  initialDateRange = [null, null]}) {    
   // Datepicker
   const [isFocused, setIsFocused] = useState(false);
-  const [dateRange, setDateRange] = useState([null, null]);
+  const [dateRange, setDateRange] = useState(initialDateRange);
   const [startDate, endDate] = dateRange;
   const formatDateRange = (start, end) => {
     if (start && end) {

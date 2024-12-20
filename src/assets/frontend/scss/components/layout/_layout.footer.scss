@@ -1,4 +1,4 @@
-// Footer Start
+// Footer CSS Start
 .footer {
     padding: 60px 0 55px;background-color: color(800);position: relative;
     &_top{
@@ -12,7 +12,9 @@
         }
         .form{
             &-group{
-                margin-bottom: 28px;
+                @media(min-width: 1599px){
+                    margin-bottom: 28px;
+                }
                 input{
                     position: relative;height: 60px;border: 0;border-radius: 30px;background-color: color(50);
                     padding: 20px 108px 20px 30px;
@@ -171,7 +173,6 @@
             }
             .form{
                 &-group{
-                    margin-bottom: 20px;
                     input{
                         height: 50px;
                         padding: 10px 90px 10px 20px;
@@ -308,7 +309,6 @@
             }
             .form{
                 &-group{
-                    margin-bottom: 15px;
                     input{
                         height: 45px;
                         padding: 5px 80px 5px 15px;
@@ -321,9 +321,6 @@
         }
         &_center{
             padding: 20px 0 15px;
-            &_inner{
-                gap: 30px;
-            }
         }
     }
     @include media-breakpoint-down(lg) {
@@ -340,10 +337,7 @@
         &_center{
             padding: 15px 0 15px;
             &_title{
-                font-size: 15px;margin-bottom: 15px;
-            }
-            &_inner{
-                gap: 15px;
+               margin-bottom: 15px;
             }
             ul{
                 column-gap: 25px;
@@ -390,6 +384,21 @@
             bottom: 10px;   
         }
     }
+    @media(max-width: 840px){
+        &_center{
+            &_second{
+                max-width: 100%;
+                margin-left: 0;
+            }
+            ul{
+                display: block;
+            }
+            &_inner{
+                gap: 30px;
+                justify-content: space-between;
+            }
+        }
+    }
     @include media-breakpoint-down(md) {
         &_top{
             &_title{
@@ -419,7 +428,6 @@
             }
             .form{
                 &-group{
-                    margin-bottom: 10px;
                     input{
                         height: 40px;
                         padding: 5px 75px 5px 15px;
@@ -450,6 +458,9 @@
             &_title{
                 margin-bottom: 10px;
             }
+            ul{
+                display: grid;
+            }
         }
         &_bottom{
             &_center{
@@ -477,6 +488,6 @@
         }
     }
 }
-// Footer End
+// Footer CSS End
 
 

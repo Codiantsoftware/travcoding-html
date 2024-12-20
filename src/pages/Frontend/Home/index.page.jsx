@@ -182,6 +182,12 @@ function Home() {
     const [showPortsModal, setShowPortsModal] = useState(false);
     const handlePortsShow = () => setShowPortsModal(true);
     const handlePortsClose = () => setShowPortsModal(false);
+
+
+   // Read More Popup
+     const [showTravellerModal, setShowTravellerModal] = useState(false);
+     const handleTravellerShow = () => setShowTravellerModal(true);
+     const handleTravellerClose = () => setShowTravellerModal(false);
   return (
     <>
       <main className="homePage">
@@ -276,6 +282,7 @@ function Home() {
                     <div role="button"
                       className={likedCards.card1 ? "active" : ""}
                       onClick={() => handleLikeClick("card1")}
+                      aria-label="Like"
                     >
                       <em
                         className={likedCards.card1 ? "icon-heart-fill" : "icon-heart"}
@@ -309,6 +316,7 @@ function Home() {
                     <div role="button"
                       className={likedCards.card2 ? "active" : ""}
                       onClick={() => handleLikeClick("card2")}
+                      aria-label="Like"
                     >
                       <em
                         className={likedCards.card2 ? "icon-heart-fill" : "icon-heart"}
@@ -342,6 +350,7 @@ function Home() {
                     <div role="button"
                       className={likedCards.card3 ? "active" : ""}
                       onClick={() => handleLikeClick("card3")}
+                      aria-label="Like"
                     >
                       <em
                         className={likedCards.card3 ? "icon-heart-fill" : "icon-heart"}
@@ -375,6 +384,7 @@ function Home() {
                     <div role="button"
                       className={likedCards.card4 ? "active" : ""}
                       onClick={() => handleLikeClick("card4")}
+                      aria-label="Like"
                     >
                       <em
                         className={likedCards.card4 ? "icon-heart-fill" : "icon-heart"}
@@ -408,6 +418,7 @@ function Home() {
                     <div role="button"
                       className={likedCards.card5 ? "active" : ""}
                       onClick={() => handleLikeClick("card5")}
+                      aria-label="Like"
                     >
                       <em
                         className={likedCards.card5 ? "icon-heart-fill" : "icon-heart"}
@@ -458,7 +469,7 @@ function Home() {
               </Row>
             </div>
             <Row className="g-2 g-xxl-3 justify-content-center">
-              <Col xs={6} sm={6} md={6} lg={4} xl={3}>
+              <Col xs={6} lg={4} xl={3}>
                 <div className="dealsSec_card">
                   <Image imageFor="frontend" source="homepage/deals-img-1.webp" className="dealsSec_card_img" alt="deals-img" />
                   <div className="dealsSec_card_cnt text-center">
@@ -472,7 +483,7 @@ function Home() {
                   </div>
                 </div>
               </Col>
-              <Col xs={6} sm={6} md={6} lg={4} xl={3}>
+              <Col xs={6} lg={4} xl={3}>
                 <div className="dealsSec_card">
                   <Image imageFor="frontend" source="homepage/deals-img-2.webp" className="dealsSec_card_img" alt="deals-img" />
                   <div className="dealsSec_card_cnt text-center">
@@ -486,7 +497,7 @@ function Home() {
                   </div>
                 </div>
               </Col>
-              <Col xs={6} sm={6} md={6} lg={4} xl={3}>
+              <Col xs={6} lg={4} xl={3}>
                 <div className="dealsSec_card">
                   <Image imageFor="frontend" source="homepage/deals-img-3.webp" className="dealsSec_card_img" alt="deals-img" />
                   <div className="dealsSec_card_cnt text-center">
@@ -500,7 +511,7 @@ function Home() {
                   </div>
                 </div>
               </Col>
-              <Col xs={6} sm={6} md={6} lg={4} xl={3}>
+              <Col xs={6} lg={4} xl={3}>
                 <div className="dealsSec_card">
                   <Image imageFor="frontend" source="homepage/deals-img-4.webp" className="dealsSec_card_img" alt="deals-img" />
                   <div className="dealsSec_card_cnt text-center">
@@ -516,7 +527,7 @@ function Home() {
               </Col>
             </Row>
             <div className="dealsSec_bottom d-flex align-items-center justify-content-center">
-              <div className="d-flex align-items-start align-items-sm-center"><em className="icon-mail" /><p className="mb-0 ms-1">Save your precious time and effort spent for finding a solution.</p></div><Link to="">Contact us now</Link>
+              <div className="d-flex align-items-start align-items-sm-center"><em className="icon-mail" /><p className="mb-0 ms-xl-2 ms-1">Save your precious time and effort spent for finding a solution.</p></div><Link to="">Contact us now</Link>
             </div>
           </Container>
         </section>
@@ -525,7 +536,7 @@ function Home() {
         {/*  Innovate Section @S  */}
         <section className="innovateSec py-70">
           <div className="innovateSec_bg">
-            <Image imageFor="frontend" source="innovate-img.webp" className="img-fluid" alt="innovate-img" />
+            <Image imageFor="frontend" source="innovate-img.webp" alt="innovate-img" className="w-100 h-100 object-fit-cover" />
           </div>
           <div className="innovateSec_top position-relative">
             <Container>
@@ -697,7 +708,7 @@ function Home() {
                 </SwiperSlide>
               </Swiper>
               <div className="sliderBtn d-flex justify-content-between">
-                <button ref={prevRefAdventures} type="button" className="prev md me-2" aria-label="Previous">
+                <button ref={prevRefAdventures} type="button" className="prev md" aria-label="Previous">
                   <em className="icon-chevron-left" />
                 </button>
                 <button ref={nextRefAdventures} type="button" className="next md" aria-label="Next">
@@ -741,9 +752,9 @@ function Home() {
                           <div className="travellerSec_card_cnt w-100 flex-grow-1">
                               <div className="travellerSec_card_space h-100">
                                   <div className="travellerSec_card_head d-flex align-items-center justify-content-between">
-                                      <div>
+                                      <div className="travellerSec_card_headInner overflow-hidden">
                                           <h3 className="travellerSec_card_name font-bd text-truncate">{card.name}</h3>
-                                          <address className="travellerSec_card_loc d-block mb-0">{card.location}</address>
+                                          <address className="travellerSec_card_loc d-block mb-0 text-truncate">{card.location}</address>
                                       </div>
                                       <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
                                           {Array.from({ length: 5 }, (_, index) => (
@@ -751,7 +762,19 @@ function Home() {
                                           ))}
                                       </div>
                                   </div>
-                                  <p className="travellerSec_card_txt mt-3 mb-0">{card.text}</p>
+                                  <p className="travellerSec_card_txt mt-3 mb-0">
+                                      {card.text.length > 155
+                                        ? `${card.text.slice(0, 155)}... `
+                                        : card.text}
+                                      {card.text.length > 155 && (
+                                        <span role="button" 
+                                        onClick={handleTravellerShow}
+                                          className="travellerSec_card_readMore d-inline-block"
+                                        >
+                                          Read More
+                                        </span>
+                                      )}
+                                    </p>
                               </div>
                           </div>
                           )}
@@ -775,9 +798,9 @@ function Home() {
                             <div className="travellerSec_card_cnt w-100 flex-grow-1">
                                 <div className="travellerSec_card_space h-100">
                                     <div className="d-flex align-items-center justify-content-between">
-                                        <div>
+                                        <div className="travellerSec_card_headInner overflow-hidden">
                                             <h3 className="travellerSec_card_name font-bd text-truncate">{card.name}</h3>
-                                            <address className="travellerSec_card_loc d-block mb-0">{card.location}</address>
+                                            <address className="travellerSec_card_loc d-block mb-0 text-truncate">{card.location}</address>
                                         </div>
                                         <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
                                             {Array.from({ length: 5 }, (_, index) => (
@@ -785,7 +808,19 @@ function Home() {
                                             ))}
                                         </div>
                                     </div>
-                                    <p className="travellerSec_card_txt mt-3 mb-0">{card.text}</p>
+                                    <p className="travellerSec_card_txt mt-3 mb-0">
+                                      {card.text.length > 155
+                                        ? `${card.text.slice(0, 155)}... `
+                                        : card.text}
+                                      {card.text.length > 155 && (
+                                        <span role="button" 
+                                        onClick={handleTravellerShow}
+                                          className="travellerSec_card_readMore d-inline-block"
+                                        >
+                                          Read More
+                                        </span>
+                                      )}
+                                    </p>
                                 </div>
                             </div>
                             )}
@@ -797,9 +832,10 @@ function Home() {
             )}
             {isSliderActive === true &&(
               <>
-              <Swiper         
+              <Swiper   
+              spaceBetween={10}      
                 modules={[Navigation]}
-                centeredSlides={true} // Center the active slide
+                centeredSlides={true}
               loop={true}
               navigation={{
                 prevEl: prevRefTravellersSay.current,
@@ -810,21 +846,23 @@ function Home() {
                 swiper.params.navigation.nextEl = nextRefTravellersSay.current;
               }}
               breakpoints={{              
+                320: {
+                  slidesPerView: 1.5,
+                },
                 400: {
+                  slidesPerView: 1.8,
+                },
+                430: {
                   slidesPerView: 2,
-                  spaceBetween:10,
                 },
                 540: {
                   slidesPerView: 2.5,
-                  spaceBetween:10,
                 },
-                576: {
+                680: {
                   slidesPerView: 3.2,
-                  spaceBetween:10,
                 },
                 768: {
                   slidesPerView: 4.2,
-                  spaceBetween:10,
                 },             
               }}>
               {horizontalCarousel.map((card) => (
@@ -841,9 +879,9 @@ function Home() {
                     <div className="travellerSec_card_cnt w-100 flex-grow-1">
                         <div className="travellerSec_card_space h-100">
                             <div className="travellerSec_card_head d-flex align-items-center justify-content-between">
-                                <div>
+                                <div className="travellerSec_card_headInner overflow-hidden">
                                     <h3 className="travellerSec_card_name font-bd text-truncate">{card.name}</h3>
-                                    <address className="travellerSec_card_loc d-block mb-0">{card.location}</address>
+                                    <address className="travellerSec_card_loc d-block mb-0 text-truncate">{card.location}</address>
                                 </div>
                                 <div className="d-flex align-items-center justify-content-between travellerSec_card_rating">
                                     {Array.from({ length: 5 }, (_, index) => (
@@ -851,7 +889,19 @@ function Home() {
                                     ))}
                                 </div>
                             </div>
-                            <p className="travellerSec_card_txt mt-3 mb-0">{card.text}</p>
+                        <p className="travellerSec_card_txt mt-3 mb-0">
+                          {card.text.length > 100
+                            ? `${card.text.slice(0, 100)}... `
+                            : card.text}
+                          {card.text.length > 100 && (
+                            <span role="button"
+                              onClick={handleTravellerShow}
+                              className="travellerSec_card_readMore d-inline-block"
+                            >
+                              Read More
+                            </span>
+                          )}
+                        </p>
                         </div>
                     </div>
                     )}
@@ -859,10 +909,10 @@ function Home() {
               ))}
               </Swiper>   
               <div className="sliderBtn d-flex justify-content-center">
-                <button ref={prevRefTravellersSay} type="button" className="prev sm">
+                <button ref={prevRefTravellersSay} type="button" className="prev sm" aria-label="prev-btn">
                   <em className="icon-chevron-left" />
                 </button>
-                <button ref={nextRefTravellersSay} type="button" className="next sm">
+                <button ref={nextRefTravellersSay} type="button" className="next sm" aria-label="next-btn">
                   <em className="icon-chevron-right" />
                 </button>
               </div>        
@@ -902,7 +952,7 @@ function Home() {
                     <Col key={index} xxl={3} md={4} sm={6} xs={6} className="customColumn">
                       <div className="popularSec_box d-flex align-items-center">
                         <div className="popularSec_box_img overflow-hidden flex-shrink-0">
-                          <Image source={cruise.imageSource} className="img-fluid w-100 h-100 object-fit-cover" alt={cruise.altText} />
+                          <Image source={cruise.imageSource} className="w-100 h-100 object-fit-cover" alt={cruise.altText} />
                         </div>
                         <div>
                           <h3 className="popularSec_box_title font-bd mb-1 mb-lg-2">{cruise.title}</h3>
@@ -922,7 +972,7 @@ function Home() {
                     <Col key={index} xxl={3} md={4} sm={6} xs={6} className="customColumn">
                       <div className="popularSec_box d-flex align-items-center">
                         <div className="popularSec_box_img overflow-hidden flex-shrink-0">
-                          <Image source={cruise.imageSource} className="img-fluid w-100 h-100 object-fit-cover" alt={cruise.altText} />
+                          <Image source={cruise.imageSource} className="w-100 h-100 object-fit-cover" alt={cruise.altText} />
                         </div>
                         <div>
                           <h3 className="popularSec_box_title font-bd mb-1 mb-lg-2">{cruise.title}</h3>
@@ -942,18 +992,44 @@ function Home() {
         </section>
         {/* Popular Section @E */}
       </main>
+
+      
+      {/* traveller read more modal */}
+      <Modal show={showTravellerModal} className="travellerModal" handleClose={handleTravellerClose}>
+        <div className="travellerDesc text-center text-break">
+          <div className="travellerDesc_img rounded-circle mx-auto overflow-hidden mt-xxl-0 mt-2">
+            <Image source="homepage/traveller-6.webp" className="img-fluid w-100 h-100 object-fit-cover" />
+          </div>
+          <h2 className="font-bd text-truncate travellerDesc_name">Pooja Nair</h2>
+          <address className="d-block mb-0 text-truncate travellerDesc_location">Bangalore, India</address>
+          <div className="travellerDesc_rating">
+            <em className="icon-star fill me-1"></em>
+            <em className="icon-star fill  me-1"></em>
+            <em className="icon-star fill me-1"></em>
+            <em className="icon-star fill me-1"></em>
+            <em className="icon-star "></em>
+          </div>
+          <p className="mt-lg-3 mt-2 mb-xxl-0 mb-2">Amazing! Can't even justify the experience aboard this city on the sea! You will find everything that you could possibly need. Good music plays round the clock.
+          </p>
+        </div>              
+      </Modal>
+        {/* video modal */}
       <Modal show={showVideosModal} className="videoModal" handleClose={handleVideosClose} size="md">
         <VideosModal/>
       </Modal>
+      {/* map modal */}
        <Modal show={showPortsModal} className="mapModal" handleClose={handlePortsClose} size="lg">
         <MapsModal/>
       </Modal>
+      {/* cruise modal */}
       <SideModal showModal={isCruiseOpen} extraClass="pd-40 pb-0" onClose={toggleCruise}>
         <CruiseModal/>
-      </SideModal>
+      </SideModal>      
+        {/* view modal */}
        <SideModal showModal={isViewsOpen} onClose={toggleViews}>
         <ViewsModal handlePortsShow={handlePortsShow} innertoggleCruise={innertoggleCruise } toggleDates={toggleDates}/>
       </SideModal>
+      {/* dates modal */}
       <SideModal showModal={isDatesOpen} extraClass="pd-40" closeBtn={false} onClose={toggleDates}>
         <DatesModal toggleBack={toggleBack}/>
       </SideModal>

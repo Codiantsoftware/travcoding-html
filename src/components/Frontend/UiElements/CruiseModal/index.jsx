@@ -7,7 +7,7 @@ export function CruiseModal() {
     return (
         <>
             <div className="sideModal_head mb-30">
-                <h2 className="sideModal_head_title">Cruise Itinerary</h2>
+                <h2 className="sideModal_head_title ">Cruise Itinerary</h2>
             </div>
             <div className="sideModal_body">
                 <div className="sideModal_body_items">
@@ -17,10 +17,10 @@ export function CruiseModal() {
                     <div className="sideModal_body_head d-flex align-items-center">
                         <div className="sideModal_body_head_lft">
                             <span className="sideModal_body_head_day">Day</span>
-                            <div className="sideModal_body_head_num">1</div>
+                            <div className="sideModal_body_head_num font-md">1</div>
                         </div>
                         <div className="sideModal_body_head_rht">
-                            <h3 className="sideModal_body_head_title">Port Canaveral (Orlando) Florida</h3>
+                            <h3 className="sideModal_body_head_title font-md">Port Canaveral (Orlando) Florida</h3>
                             <p>Thu Dec 19, 2024 | Depart 05:00 PM</p>
                         </div>
                     </div>
@@ -32,7 +32,7 @@ export function CruiseModal() {
                                         <em className="icon-bulb" />
                                     </div>
                                     <div className="sideModal_body_box_rht">
-                                        <h4 className="sideModal_body_box_title">About this Port</h4>
+                                        <h4 className="sideModal_body_box_title font-md">About this Port</h4>
                                         <p>With miles of golden beaches and a glamorous downtown district brimming with trendy shops and gourmet eateries, Fort Lauderdale blends South Florida chic and oceanfront family-fun. </p>
                                         <Link to="#">Learn More</Link>
                                     </div>
@@ -44,7 +44,7 @@ export function CruiseModal() {
                                         <em className="icon-telescope" />
                                     </div>
                                     <div className="sideModal_body_box_rht">
-                                        <h4 className="sideModal_body_box_title">About this Port</h4>
+                                        <h4 className="sideModal_body_box_title font-md">Some Things to See & Do</h4>
                                         <ul className="list-unstyled">
                                             <li>Explore the shops, restaurants and attractions of Las Olas Boulevard</li>
                                             <li>Cruise the city's famous canals on a relaxing boat ride</li>
@@ -64,10 +64,10 @@ export function CruiseModal() {
                     <div className="sideModal_body_head d-flex align-items-center">
                         <div className="sideModal_body_head_lft">
                             <span className="sideModal_body_head_day">Day</span>
-                            <div className="sideModal_body_head_num">2</div>
+                            <div className="sideModal_body_head_num font-md">2</div>
                         </div>
                         <div className="sideModal_body_head_rht">
-                            <h3 className="sideModal_body_head_title">Fort Lauderdale, Florida</h3>
+                            <h3 className="sideModal_body_head_title font-md">Fort Lauderdale, Florida</h3>
                             <p>Aboard: 3:00 PM</p>
                         </div>
                     </div>
@@ -79,7 +79,7 @@ export function CruiseModal() {
                                         <em className="icon-bulb" />
                                     </div>
                                     <div className="sideModal_body_box_rht">
-                                        <h4 className="sideModal_body_box_title">About this Port</h4>
+                                        <h4 className="sideModal_body_box_title font-md">About this Port</h4>
                                         <p>With miles of golden beaches and a glamorous downtown district brimming with trendy shops and gourmet eateries, Fort Lauderdale blends South Florida chic and oceanfront family-fun. </p>
                                         <Link to="#">Learn More</Link>
                                     </div>
@@ -91,7 +91,7 @@ export function CruiseModal() {
                                         <em className="icon-telescope" />
                                     </div>
                                     <div className="sideModal_body_box_rht">
-                                        <h4 className="sideModal_body_box_title">About this Port</h4>
+                                        <h4 className="sideModal_body_box_title font-md">Some Things to See & Do</h4>
                                         <ul className="list-unstyled">
                                             <li>Explore the shops, restaurants and attractions of Las Olas Boulevard</li>
                                             <li>Cruise the city's famous canals on a relaxing boat ride</li>

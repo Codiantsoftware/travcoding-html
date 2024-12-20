@@ -118,4 +118,14 @@
   background-color: #fff4f3;
   color: color(800);
   }
+  @include media-breakpoint-down(lg) {
+    &-wrapper {
+      width: 100%;
+      .react-datepicker__input-container{
+        input {
+          padding-left: 15px;
+        }
+      }
+    }
+  }
 }

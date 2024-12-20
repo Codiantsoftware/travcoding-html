@@ -84,22 +84,22 @@ export function Header() {
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="ms-auto">
                                 <Nav.Item>
-                                    <Nav.Link href="">Find A Cruise</Nav.Link>
+                                    <Link to="#!" className="nav-link">Find A Cruise</Link>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link href="#">Deals</Nav.Link>
+                                    <Link to="#!" className="nav-link">Deals</Link>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link href="#">Ships</Nav.Link>
+                                    <Link to="#!" className="nav-link">Ships</Link>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link href="#">Destinations</Nav.Link>
+                                    <Link to="#!" className="nav-link">Destinations</Link>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link href="#">Manage My Cruise</Nav.Link>
+                                    <Link to="#!" className="nav-link">Manage My Cruise</Link>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link href="#" className="d-flex align-items-center" aria-label="Today's Deals"><em className="icon-deals" /> Today's Deals</Nav.Link>
+                                    <Link to="#!" className="d-flex align-items-center nav-link" aria-label="Today's Deals"><em className="icon-deals" /> Today's Deals</Link>
                                 </Nav.Item>
                             </Nav>
                         </Navbar.Collapse>
@@ -112,7 +112,7 @@ export function Header() {
                                         <Link to="tel:8665627625">866 562 7625</Link>
                                     </li>
                                     <li className="align-items-center callField">
-                                        <Link to="tel:8665627625"><em className="icon-phone-call"/></Link>
+                                        <Link to="tel:8665627625" aria-label="call"><em className="icon-phone-call"/></Link>
                                     </li>
                                         <li className="signUp"><Link to="/" className="text-uppercase" aria-label="Sign up">Sign up</Link></li>
                                 </ul>

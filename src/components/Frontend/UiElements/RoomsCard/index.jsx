@@ -76,7 +76,8 @@ export function RoomsCard({ room, handleVideosShow }) {
                         <Link to="#" className="roomsCard_action_links">
                         View Details
                         </Link>
-                        <Button as={Link} to={frontendRouteMap.DECKPLAN.path}
+                        <Button as={Link} 
+                        // to={frontendRouteMap.DECKPLAN.path}
                         type="button"
                         extraClass="text-uppercase"
                         variant="primary"

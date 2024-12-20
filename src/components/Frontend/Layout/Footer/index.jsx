@@ -34,7 +34,7 @@ export function Footer() {
     
     return (
         <>
-           <div className="footer">
+           <footer className="footer">
                 <Container>
                     <div className="footer_top">
                         <Row className="justify-content-between">
@@ -51,7 +51,7 @@ export function Footer() {
                                     </FormGroup>
                                 </Form>
                                 <div className="footer_top_privacy">
-                                    <CheckRadio name="agree" type="checkbox" label={<>I agree to the <Link to="/">privacy statement</Link></>} id="checkbox01" extraClass="form-check-inline d-block"/>                                    
+                                    <CheckRadio name="agree" type="checkbox" label={<>I agree to the <Link to="/listing">privacy statement</Link></>} id="checkbox01" extraClass="form-check-inline d-block"/>                                    
                                 </div>
                             </Col>
                             <Col sm={6} md={5} xl={4} className="footer_top_right text-sm-end">
@@ -128,7 +128,7 @@ export function Footer() {
                     </div>
                 </Container>
                 <Link as="button" aria-label="scroll to top" className= {`footer_scrollBtn ${isVisible ? "show" : ""}`}  onClick={scrollToTop} ><em className="icon-arrow-top" /></Link>
-            </div>
+            </footer>
         </>
     );
 }

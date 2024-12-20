@@ -1,4 +1,4 @@
-// Header Start
+// Header CSS Start
 .header {
     top: 0;
     left: 0;
@@ -14,6 +14,11 @@
     }
     .navbar {
         padding: 20px 0px;
+        &-brand{
+            a{
+                display:flex;
+            }
+        }
         .nav-item {
             &:not(:last-child) {
                 margin-inline-end: 30px;
@@ -22,10 +27,7 @@
         .nav-link {
             color: color(800);
             padding: 0px;
-            &.active {
-                color: color(500);
-            }
-            &:hover {
+            &.active, &:hover {
                 color: color(500);
             }
             em{margin-right: 8px;}
@@ -33,6 +35,9 @@
     } 
     &_right{
         margin-left: 185px;
+        .btn{
+            padding: 15px 22px;
+        }
         &_list{
             margin-right: 30px;
             .callField{
@@ -47,17 +52,14 @@
                     font-family: font(md);
                 }
                 a{
-                    &.active {
-                        color: color(500);
-                    }
-                    &:hover {
+                    &.active, &:hover{
                         color: color(500);
                     }
                 }
                 &:not(:last-child){
                     margin-right: 50px;
                     &::after{
-                        position: absolute;top: 50%;bottom: 0;right: -25px;transform: translateY(-50%);
+                        @include absolutecenter(y);bottom: 0;right: -25px;
                         background-color: #B9B9B9;width: 2px;height: 24px;content: "";
                     }
                 }
@@ -73,7 +75,6 @@
         &_name{
             font-size: 14px;
             color: color(800);
-            
         }
         .dropdown{
             &-toggle{
@@ -110,10 +111,7 @@
         .navbar {
           .nav-link {
             color: color(50);
-            &.active {
-              color: color(500);
-            }
-            &:hover {
+            &.active, &:hover {
               color: color(500);
             }
           }
@@ -180,6 +178,9 @@
         } 
         &_right{
             margin-left: 30px;
+            .btn{
+                padding: 10px 18px;
+            }
             &_list{
                 margin-right: 15px;
                 li{  
@@ -208,6 +209,7 @@
         }
         .navbar {
             &-nav{
+                border-top: 1px solid rgba($color: color(900), $alpha: 0.08);
                 padding: 15px;
             }
             &-brand{
@@ -302,7 +304,7 @@
                 max-width: 150px;
             }
             &-collapse {
-                top: 48px;
+                top: 52px;
             }
         } 
     }
@@ -327,6 +329,10 @@
             }
         }
         &_right{
+            .btn{
+                padding: 5px 14px;
+                line-height: normal;
+            }
             &_list{
                 &:first-child{
                     display: none;
@@ -364,6 +370,9 @@
                 // max-width: 110px;
                 margin-right: 5px;
             }
+            &-collapse{
+                top: 44px;
+            }
         }
         &_right{
             &_list{
@@ -371,6 +380,32 @@
                     display: flex;
                     em{
                         font-size: 18px;
+                        display: inline-block;
+                        animation-name: trin;
+                        animation-duration: 1.4s;
+                        animation-iteration-count: infinite;
+                        animation-timing-function: linear;
+                    }
+                    @keyframes trin {
+                        from {
+                            transform:rotate3d(0, 0, 1, 0deg);
+                        }
+                        20%, 32%, 44%, 56%, 68% {
+                            transform: rotate3d(0, 0, 1, 0deg);
+                        }
+                        23%, 35%, 47%, 59%, 71% {
+                            transform: rotate3d(0,0,1,15deg);
+                        }
+                        26%, 38%, 50%, 62%, 74% {
+                            transform: rotate3d(0,0,1,0deg);
+                        }
+                        29%, 41%, 53%, 65%, 77% {
+                            transform: rotate3d(0,0,1,-15deg);
+                        }
+                        80% {
+                            transform:rotate3d(0, 0, 1, 0deg);
+                        }
+                    
                     }
                 }
                 .phoneField, .signUp{
@@ -388,5 +423,5 @@
         }
     }
 }
-// Header End
+// Header CSS End
 

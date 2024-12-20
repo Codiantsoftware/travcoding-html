@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import { Button } from "../Button";
 import { DateSelectPicker } from "../DateSelectPicker";
 import { SelectPicker } from "../SelectPicker";
-import { Link } from "react-router-dom";
 import frontendRouteMap from "../../../../routes/Frontend/frontendRouteMap";
+import { Link } from "react-router-dom";
 
 export function SearchFilter() {    
-    
+    const initialDateRange = [new Date(2023, 11, 1), new Date(2023, 11, 10)]; 
   //Select option
   const options = [
     { value: 'Newyork', label: 'New York State, USA' },
@@ -30,10 +30,10 @@ export function SearchFilter() {
                         </Form.Group>
                         <Form.Group className="mb-0 form-group " controlId="leaving">
                             <Form.Label>Leaving</Form.Label>
-                           <DateSelectPicker placeholderText="Select Date" />
+                           <DateSelectPicker placeholderText="Select Date" initialDateRange={initialDateRange} />
                         </Form.Group>
                         <div className="searchFilter_btn">
-                            <Button as={Link} to={frontendRouteMap.LISTING.path} variant="secondary" label="Search" iconPosition="left" showIcon={true} iconClass="search" iconExtraClass="me-xxl-3 me-2" extraClass="text-uppercase w-100"/>                            
+                            <Button as={Link} to={frontendRouteMap.LISTING.path} variant="secondary" type="button" label="Search" iconPosition="left" showIcon={true} iconClass="search" iconExtraClass="me-xxl-3 me-2" extraClass="text-uppercase w-100"/>                            
                         </div>
                     </div>
                 </Form>

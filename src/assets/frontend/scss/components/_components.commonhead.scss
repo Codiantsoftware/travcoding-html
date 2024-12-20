@@ -45,7 +45,7 @@
   }
   @include media-breakpoint-down(xxl) {
     &_title {
-      font-size: 38px;
+      font-size: 36px;
     }
     &_para{
       font-size: 16px;
@@ -57,7 +57,7 @@
   @include media-breakpoint-down(xl) {
     margin-bottom: 25px;
     &_title {
-      font-size: 34px;
+      font-size: 32px;
     }
     &_para{
       font-size: 15px;
@@ -69,19 +69,14 @@
   }
   @include media-breakpoint-down(lg) {
     margin-bottom: 25px;
-    &_title {
-      font-size: 30px;
-    }
     &_para{
       font-size: 14px;
       &.lg{
         font-size: 16px;
       }
     }
-  }
-  @include media-breakpoint-down(md) {
     &_title {
-      font-size: 26px;
+      font-size: 28px;
     }
   }
   @include media-breakpoint-down(sm) {

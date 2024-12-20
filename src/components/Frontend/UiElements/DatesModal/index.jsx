@@ -40,7 +40,7 @@ export function DatesModal({toggleBack}) {
   return (
     <>
       <div className="sideModal_head mb-30">
-        <h2 className="sideModal_head_title pe-0 d-flex align-items-center"><div role="button" onClick={toggleBack} className="sideModal_head_back"><em className="icon-arrow-left" /></div> Guest Information</h2>
+        <h2 className="sideModal_head_title pe-0 d-flex align-items-center"><div role="button" aria-label="Back Button" onClick={toggleBack} className="sideModal_head_back"><em className="icon-arrow-left" /></div> Guest Information</h2>
       </div>
       <Form className="sideModal_form">
         <div className="sideModal_form_top d-flex h-100 flex-column">
@@ -50,9 +50,9 @@ export function DatesModal({toggleBack}) {
             <div className="sideModal_counts">
               <div className="sideModal_counts_items">
                 <div className="sideModal_counts_box">
-                  <div role="button" onClick={() => handleDecrease("rooms")} className="sideModal_counts_left"><em className="icon-minus" /></div>
+                  <div role="button" onClick={() => handleDecrease("rooms")} className="sideModal_counts_left" aria-label="Minus Button"><em className="icon-minus" /></div>
                   <div className="sideModal_counts_center"><input type="text" min={0} value={counts.rooms} onChange={(e) => handleInputChange("rooms", e.target.value)} /></div>
-                  <div role="button" onClick={() => handleIncrease("rooms")} className="sideModal_counts_right"><em className="icon-plus" /></div>
+                  <div role="button" onClick={() => handleIncrease("rooms")} className="sideModal_counts_right" aria-label="Plus Button"><em className="icon-plus" /></div>
                 </div>
               </div>
             </div>
@@ -64,17 +64,17 @@ export function DatesModal({toggleBack}) {
               <div className="sideModal_counts_items">
                 <label className="sideModal_counts_label">Adults</label>
                 <div className="sideModal_counts_box">
-                  <div role="button" onClick={() => handleDecrease("adultsRoom1")} className="sideModal_counts_left"><em className="icon-minus" /></div>
+                  <div role="button" onClick={() => handleDecrease("adultsRoom1")} className="sideModal_counts_left" aria-label="Minus Button"><em className="icon-minus" /></div>
                   <div className="sideModal_counts_center"><input type="text" min={0} value={counts.adultsRoom1} onChange={(e) => handleInputChange("adultsRoom1", e.target.value)} /></div>
-                  <div role="button" onClick={() => handleIncrease("adultsRoom1")} className="sideModal_counts_right"><em className="icon-plus" /></div>
+                  <div role="button" onClick={() => handleIncrease("adultsRoom1")} className="sideModal_counts_right" aria-label="Plus Button"><em className="icon-plus" /></div>
                 </div>
               </div>
               <div className="sideModal_counts_items">
                 <label className="sideModal_counts_label">Children <span>(Ages 0-12)</span></label>
                 <div className="sideModal_counts_box">
-                  <div role="button" onClick={() => handleDecrease("adultsRoom2")} className="sideModal_counts_left"><em className="icon-minus" /></div>
+                  <div role="button" onClick={() => handleDecrease("adultsRoom2")} className="sideModal_counts_left" aria-label="Minus Button"><em className="icon-minus" /></div>
                   <div className="sideModal_counts_center"><input type="text" min={0} value={counts.adultsRoom2} onChange={(e) => handleInputChange("adultsRoom2", e.target.value)} /></div>
-                  <div role="button" onClick={() => handleIncrease("adultsRoom2")} className="sideModal_counts_right"><em className="icon-plus" /></div>
+                  <div role="button" onClick={() => handleIncrease("adultsRoom2")} className="sideModal_counts_right" aria-label="Plus Button"><em className="icon-plus" /></div>
                 </div>
               </div>
             </div>

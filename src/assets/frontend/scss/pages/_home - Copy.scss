@@ -1,5 +1,6 @@
 .homePage {
-  // Banner CSS Start
+
+  // banner
   .bannerSec {
     &_inner {
       background-repeat: no-repeat;
@@ -7,11 +8,12 @@
       height: 900px;
       width: 100%;
       background-position: center;
+      z-index: 0;
     }
 
     &_curve {
       position: absolute;
-      bottom: -2px;
+      bottom: 0px;
       width: 100%;
       left: 0;
     }
@@ -51,6 +53,7 @@
         }
       }
     }
+
     .searchFilter {
       bottom: 0;
     }
@@ -69,13 +72,6 @@
       }
     }
 
-    @include media-breakpoint-up(lg) {
-      &_cnt{
-        &_subTitle {
-          margin-left: 10px;
-        }
-      }
-    }
     @include media-breakpoint-down(xxl) {
       &_inner {
         height: 630px;
@@ -86,6 +82,7 @@
 
         &_title {
           font-size: 48px;
+          // margin-top: -20px;
         }
 
         .btn-light {
@@ -150,7 +147,6 @@
 
         p {
           font-size: 16px;
-          filter: drop-shadow(0px 5px 20px rgba(0, 0, 0, 0.45));
         }
 
         &_title {
@@ -165,7 +161,7 @@
 
     @include media-breakpoint-down(sm) {
       &_inner {
-        height: 620px;
+        height: 650px;
 
         &::before {
           content: '';
@@ -177,6 +173,10 @@
           background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
           z-index: -1;
         }
+      }
+
+      &_curve {
+        bottom: -2px;
       }
 
       &_cnt {
@@ -196,8 +196,7 @@
         }
 
         &_title {
-          font-size: 28px;
-          max-width: 500px;
+          font-size: 26px;
         }
 
         &_subTitle {
@@ -207,14 +206,11 @@
 
     }
   }
-   // Banner CSS End
 
-  // Explore Section CSS Start
+  // Explore section
   .exploreSec {
     padding-top: 90px;
-    .btn{
-      z-index: 0;
-    }
+
     &_card {
       margin-bottom: 15px;
 
@@ -325,7 +321,7 @@
     }
 
     @include media-breakpoint-down(xxl) {
-      padding-top: 50px;
+      padding-top: 70px;
     }
 
     @include media-breakpoint-down(xl) {
@@ -391,11 +387,10 @@
         }
       }
     }
-    @include media-breakpoint-between(md, xl) {
-      padding-top: 30px;
-    }
+
     @include media-breakpoint-down(sm) {
-      padding-top: 75px;
+      padding-top: 35px;
+
       .sliderBtn {
         margin-left: 15px;
       }
@@ -427,9 +422,10 @@
       }
     }
   }
-  // Explore section CSS End
 
-  // Travellers Section CSS Start
+  // Explore section
+
+  // Travellers Section
   .travellerSec {
     border-bottom: 1px solid rgba($color: #000000, $alpha: 8%);
 
@@ -488,11 +484,6 @@
       transition: transform 0.3s;
       cursor: pointer;
       overflow: hidden;
-
-      &-video {
-        cursor: default;
-      }
-
       &:not(:last-child) {
         margin-right: 10px;
       }
@@ -516,20 +507,22 @@
       }
 
       &_cnt {
-        background-color: color(50);
+        background-color: #ffffff;
         border-radius: 0 33px 33px 0px;
-        border: 1px solid color(150);
+        border: 1px solid #CFCFCF;
         border-left: 0;
         flex: 0;
         max-width: 0;
         opacity: 0;
         visibility: hidden;
         transition: all 0.5s ease;
+        /* Smooth transition for all properties */
         flex-grow: 1;
       }
 
       &.active {
         .travellerSec_card_cnt {
+          /* Add padding in the active state */
           flex: 0 0 calc(100% - 425px);
           max-width: 425px;
           opacity: 1;
@@ -547,12 +540,11 @@
           }
         }
       }
-      &_headInner{  
-        max-width: 250px;
-      }
+
       &_name {
         font-size: 22px;
         color: rgba($color: color(800), $alpha: 0.8);
+        max-width: 250px;
         line-height: 1.3;
         margin-bottom: 2px;
       }
@@ -565,7 +557,7 @@
       &_rating {
         em {
           font-size: 14px;
-          color: color(150);
+          color: #CFCFCF;
           margin-right: 4px;
 
           &.fill {
@@ -580,13 +572,6 @@
         color: rgba($color: color(800), $alpha: 0.80);
         @include text-clamp(4);
         white-space: normal;
-      }
-      &_readMore{
-        color: color(500);
-        font-size: 15px;
-        &:hover{
-          text-decoration: underline;
-        }
       }
     }
 
@@ -606,9 +591,7 @@
             max-width: 405px;
           }
         }
-        &_headInner{
-          max-width: 182px;
-        }
+
         &_img {
           width: 180px;
           height: 180px;
@@ -634,7 +617,7 @@
 
     @include media-breakpoint-down(xl) {
       &_card {
-        max-width: 500px;
+        max-width: 450px;
 
         &.active {
           .travellerSec_card_cnt {
@@ -650,12 +633,12 @@
         }
 
         &_img {
-          width: 170px;
-          height: 170px;
+          width: 160px;
+          height: 160px;
         }
 
         &_space {
-          padding: 15px;
+          padding: 15px 20px;
         }
 
         &_name {
@@ -671,7 +654,7 @@
     @include media-breakpoint-down(md) {
       &_card {      
           display: block !important;
-          border: 1px solid color(150);
+          border: 1px solid #CFCFCF;
           padding: 15px;
           border-radius: 25px;
           max-width: none;
@@ -682,6 +665,9 @@
             border-radius: 50%;
             margin: auto;
 
+            img {
+              border-radius: 50%;
+            }
           }
           .travellerSec_card_cnt {
             border-color: transparent;
@@ -716,12 +702,6 @@
             height: auto;
           }
         }
-        &_headInner{
-          max-width: 100%;
-        }
-        &_readMore{
-          font-size: 14px;
-        }
       }
       &_slider {
         padding-bottom: 50px;
@@ -733,22 +713,23 @@
           margin: 0 auto;
           left: 0;
           right: 0;
-
+    
           button {
             border: 2px solid color(900);
+            color: color(900);
             transition: all .3s ease;
             background-color: color(900);
-            color: color(50);    
-            margin: 0 5px;      
+            color: color(50);          
           }
         }
       }
-
+            
     }
   }
-  // Travellers Section CSS End
 
-  // Deals section CSS Start
+  // Travellers Section
+
+  // Deals section
   .dealsSec {
     &_card {
       border-radius: 10px;
@@ -759,6 +740,7 @@
         position: relative;
         border-radius: 10px;
         transition: all 0.3s;
+        overflow: hidden;
         width: 100%;
         object-fit: cover;
         height: 100%;
@@ -784,8 +766,6 @@
         font-family: font(bd);
         line-height: 1.05;
         margin-bottom: 1px;
-        max-width: 294px;
-        margin: 0 auto;
       }
 
       &_price {
@@ -848,7 +828,6 @@
 
         &_title {
           font-size: 32px;
-          max-width: 240px;
         }
 
         &_price {
@@ -871,18 +850,7 @@
         }
       }
     }
-    @media(max-width: 1499px) {
-      &_card{
-        &_title{
-          font-size: 30px;
-        }
-        &_price{
-          p{
-            font-size: 35px;
-          }
-        }
-      }
-    }
+
     @include media-breakpoint-down(xxl) {
       &_card {
         &_cnt {
@@ -901,7 +869,7 @@
           }
 
           p {
-            font-size: 33px;
+            font-size: 34px;
           }
         }
       }
@@ -914,8 +882,8 @@
         }
 
         &_title {
-          font-size: 26px;
-          max-width: 180px;
+          font-size: 24px;
+          max-width: 200px;
           margin: 0 auto 5px;
         }
 
@@ -941,9 +909,8 @@
 
     @include media-breakpoint-down(lg) {
       &_card {
-        height: 450px;
         &_title {
-          font-size: 24px;
+          font-size: 22px;
         }
 
         &_price {
@@ -995,7 +962,6 @@
 
         &_title {
           font-size: 20px;
-          max-width: 140px;
         }
 
         &_price {
@@ -1038,9 +1004,10 @@
       }
     }
   }
-  // Deals section CSS End
 
-  // Innovate section CSS Start
+  // Deals section
+
+  // innovate section
   .innovateSec {
     background-color: color(900);
     position: relative;
@@ -1057,6 +1024,12 @@
       left: 0;
       top: 0;
       width: 100%;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
 
     &_top {
@@ -1070,12 +1043,12 @@
         gap: 140px;
         padding-top: 400px;
         max-width: 1050px;
-        justify-content: center;
       }
 
       &_box {
         color: color(50);
         min-width: 220px;
+
         em {
           font-size: 55px;
           margin-bottom: 16px;
@@ -1109,6 +1082,7 @@
       }
 
       &_slider {
+        // height: 460px;
 
         &::before,
         &::after {
@@ -1119,7 +1093,6 @@
           z-index: 2;
           top: 0;
           opacity: 0.59;
-          pointer-events: none;
         }
 
         &::before {
@@ -1146,7 +1119,6 @@
     &_sliderCard {
       border-radius: 10px;
       height: 460px;
-      display: block;
 
       &_img {
         border-radius: 10px;
@@ -1190,7 +1162,6 @@
           font-size: 16px;
           margin-bottom: 5px;
           text-transform: uppercase;
-          @include text-clamp(2);
         }
 
         h3 {
@@ -1199,7 +1170,6 @@
           line-height: 1.08;
           margin-bottom: 0;
           text-transform: uppercase;
-          @include text-clamp(3);
         }
       }
 
@@ -1212,19 +1182,19 @@
     }
 
     .sliderBtn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 9;
+      width: calc(100% - 80px);
+      margin: 0 auto;
+      left: 0;
+      right: 0;
+
       button {
         border: 2px solid color(50);
         color: color(50);
         transition: all .3s ease;
-        position: absolute;top: 50%;
-        transform: translateY(-50%);
-        z-index: 9;
-        &.prev{
-          left: 40px;
-        }
-        &.next{
-          right: 40px;
-        }
 
         &:hover {
           background-color: color(50);
@@ -1233,6 +1203,13 @@
       }
     }
 
+    // @media(min-width: 1600px){
+    //   .commonHead{
+    //     &_para{
+    //       font-size: 24px;line-height: 1.3;
+    //     }
+    //   }
+    // }
     @media(max-width: 1599px) {
       &_sliderCard {
         height: 420px;
@@ -1243,38 +1220,11 @@
           }
         }
       }
-      &_top{
-        &_support{
-          padding-top: 350px;
-          gap: 120px;
-        }
-        &_box{
-          h3{
-            font-size: 22px;
-          }
-          p{
-            font-size: 15px;
-          }
-        }
-      }
-      &_bottom{
-        padding-top: 100px;
-      }
     }
 
     @include media-breakpoint-down(xxl) {
-      .sliderBtn{
-        button{
-          &.prev{
-            left: 16px;
-          }
-          &.next{
-            right: 16px;
-          }
-        }
-      }
       &_bottom {
-        padding-top: 80px;
+        padding-top: 120px;
 
         &_btn {
           margin-top: 40px;
@@ -1293,32 +1243,20 @@
     @include media-breakpoint-down(xl) {
       &_sliderCard {
         height: 350px;
-        &_cnt {
-          h3 {
-            font-size: 19px;
-          }
-
-          span {
-            font-size: 15px;
-          }
-        }
       }
 
       &_top {
         &_support {
-          padding-top: 250px;
+          padding-top: 350px;
           gap: 100px;
         }
 
         &_box {
           h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
+            font-size: 22px;
+            margin-bottom: 12px;
           }
-          p{
-            font-size: 14px;
-            line-height: normal;
-          }
+
           em {
             font-size: 50px;
           }
@@ -1330,7 +1268,7 @@
       }
 
       &_bottom {
-        padding-top: 70px;
+        padding-top: 100px;
 
         &_slider {
 
@@ -1359,12 +1297,17 @@
 
       &_top {
         &_support {
-          padding-top: 200px;
+          padding-top: 270px;
           gap: 25px;
           max-width: 100%;
         }
 
         &_box {
+          h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+          }
+
           em {
             font-size: 45px;
           }
@@ -1376,7 +1319,7 @@
       }
 
       &_bottom {
-        padding-top: 60px;
+        padding-top: 80px;
 
         &_slider {
 
@@ -1403,19 +1346,25 @@
 
       &_top {
         &_support {
-          padding-top: 150px;
+          padding-top: 200px;
           gap: 15px;
           flex-wrap: wrap;
           justify-content: center;
         }
 
         &_box {
-          max-width: 260px;
+          width: 260px;
 
           h3 {
             font-size: 18px;
             line-height: normal;
           }
+
+          p {
+            font-size: 14px;
+            line-height: normal;
+          }
+
           em {
             font-size: 40px;
           }
@@ -1427,7 +1376,7 @@
       }
 
       &_bottom {
-        padding-top: 40px;
+        padding-top: 60px;
 
         &_slider {
 
@@ -1440,23 +1389,13 @@
     }
 
     @include media-breakpoint-down(sm) {
-      .sliderBtn{
-        button{
-          &.prev{
-            left: 10px;
-          }
-          &.next{
-            right: 10px;
-          }
-        }
-      }
       &_sliderCard {
         height: 250px;
       }
 
       &_top {
         &_box {
-          max-width: 100%;
+          width: 100%;
           min-width: 100%;
         }
 
@@ -1470,7 +1409,7 @@
       }
 
       &_bottom {
-        padding-top: 30px;
+        padding-top: 40px;
 
         &_slider {
 
@@ -1482,14 +1421,10 @@
       }
     }
   }
-  // Innovate section CSS End
 
 
-  //  PopularSec Section CSS Start
+  //  popularSec
   .popularSec {
-    .tab-content{
-      overflow: hidden;
-    }
     .nav {
       gap: 0 20px;
       margin-bottom: 40px;
@@ -1545,21 +1480,26 @@
         }
       }
     }
-    @media(max-width: 1599px) {
-      .nav{
-        gap: 0 15px;
-        &-link{
-          font-size: 18px;
-          padding: 14px 22px;
-          width: 170px;
+
+    @media (min-width: 1499px) {
+      .tab-pane {
+        .row {
+          margin-left: -30px;
+          margin-right: -30px;
+
+          &>* {
+            --bs-gutter-x: 30px;
+            --bs-gutter-y: 30px;
+          }
         }
       }
     }
-    @include media-breakpoint-up(xxl) {
-      .tab-content{
-        .row{
-          --bs-gutter-x: 30px;
-          --bs-gutter-y: 30px;
+
+    @include media-breakpoint-down(xxl) {
+      .nav {
+        &-link {
+          padding: 16px 22px;
+          width: 190px;
         }
       }
     }
@@ -1568,10 +1508,11 @@
       .nav {
         gap: 0 15px;
         margin-bottom: 30px;
+
         &-link {
-          font-size: 16px;
-          padding: 12px 10px;
-          width: 140px;
+          font-size: 18px;
+          padding: 12px 15px;
+          width: 160px;
         }
       }
 
@@ -1606,9 +1547,9 @@
     @include media-breakpoint-down(lg) {
       .nav {
         &-link {
-          font-size: 15px;
-          width: 130px;
-          padding: 10px;
+          font-size: 16px;
+          padding: 10px 15px;
+          width: 140px;
         }
       }
     }
@@ -1623,7 +1564,7 @@
       }
 
       .nav {
-        gap: 0 10px;
+        gap: 0 12px;
         margin-bottom: 20px;
 
         &-link {
@@ -1639,5 +1580,4 @@
       }
     }
   }
-  //  PopularSec Section CSS End
 }

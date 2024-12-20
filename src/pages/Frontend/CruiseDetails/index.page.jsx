@@ -12,74 +12,74 @@ import roomsData from "./roomsData.json";
 import shipFacts from "./shipFacts.json";
 
 const CruiseDetails = () => {
+  // Banner Swiper nav
   const prevRefSwiper = useRef(null);
   const nextRefSwiper = useRef(null);
-
+  // state for deck plan dropdown
   const [deckPlan, setDeckPlan] = useState("Deck 19");
-        //Modal Map
-    const [showPortsModal, setShowPortsModal] = useState(false);
-    const handlePortsShow = () => setShowPortsModal(true);
-    const handlePortsClose = () => setShowPortsModal(false);
-    //Modal Video
-    const [showVideosModal, setShowVideosModal] = useState(false);
-    const handleVideosShow = () => setShowVideosModal(true);
-    const handleVideosClose = () => setShowVideosModal(false);
-    //Cruise Side Modal
-    const [isCruiseOpen, setCruiseOpen] = useState(false);
-    const toggleCruise = () => {
-      setCruiseOpen((prevState) => !prevState);
-    };
-    //View Plan Side Modal
-    const [isViewsOpen, setViewsOpen] = useState(false);
-    const toggleViews = () => {
-      setViewsOpen((prevState) => !prevState);
-    };
-    const innertoggleCruise = () => {
-      setViewsOpen(false);
-      setCruiseOpen(true);
-    };
-    //Dates Side Modal
-    const [isDatesOpen, setDatesOpen] = useState(false);
-    const toggleDates = () => {
-      setViewsOpen(false);
-      setDatesOpen((prevState) => !prevState);
-    };
-    const toggleBack = () => {
-      setViewsOpen(true);
-      setDatesOpen(false);
-    };
+    //Modal Map
+  const [showPortsModal, setShowPortsModal] = useState(false);
+  const handlePortsShow = () => setShowPortsModal(true);
+  const handlePortsClose = () => setShowPortsModal(false);
+  //Modal Video
+  const [showVideosModal, setShowVideosModal] = useState(false);
+  const handleVideosShow = () => setShowVideosModal(true);
+  const handleVideosClose = () => setShowVideosModal(false);
+  //Cruise Side Modal
+  const [isCruiseOpen, setCruiseOpen] = useState(false);
+  const toggleCruise = () => {
+    setCruiseOpen((prevState) => !prevState);
+  };
+  //View Plan Side Modal
+  const [isViewsOpen, setViewsOpen] = useState(false);
+  const toggleViews = () => {
+    setViewsOpen((prevState) => !prevState);
+  };
+  const innertoggleCruise = () => {
+    setViewsOpen(false);
+    setCruiseOpen(true);
+  };
+  //Dates Side Modal
+  const [isDatesOpen, setDatesOpen] = useState(false);
+  const toggleDates = () => {
+    setViewsOpen(false);
+    setDatesOpen((prevState) => !prevState);
+  };
+  const toggleBack = () => {
+    setViewsOpen(true);
+    setDatesOpen(false);
+  };
 
-    const deckPreviewRef = useRef(null);
-    const [isFullscreen, setIsFullscreen] = useState(false);
-  
-    const handleFullscreen = () => {
-      if (document.fullscreenElement) {
-        // Exit fullscreen
-        if (document.exitFullscreen) {
-          document.exitFullscreen();
-        }
-      } else {
-        // Enter fullscreen
-        if (deckPreviewRef.current.requestFullscreen) {
-          deckPreviewRef.current.requestFullscreen();
-        }
+  // State and Function to toggle fullscreen deck preview
+  const deckPreviewRef = useRef(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const handleFullscreen = () => {
+    if (document.fullscreenElement) {
+      // Exit fullscreen
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
       }
+    } else {
+      // Enter fullscreen
+      if (deckPreviewRef.current.requestFullscreen) {
+        deckPreviewRef.current.requestFullscreen();
+      }
+    }
+  };
+  useEffect(() => {
+    const onFullscreenChange = () => {
+      // Update the fullscreen state based on whether an element is in fullscreen
+      setIsFullscreen(!!document.fullscreenElement);
     };
-  
-    useEffect(() => {
-      const onFullscreenChange = () => {
-        // Update the fullscreen state based on whether an element is in fullscreen
-        setIsFullscreen(!!document.fullscreenElement);
-      };
-      // Add event listener for fullscreen changes
-      document.addEventListener("fullscreenchange", onFullscreenChange);
-      return () => {
-        // Cleanup event listener
-        document.removeEventListener("fullscreenchange", onFullscreenChange);
-      };
-    }, []);
+    // Add event listener for fullscreen changes
+    document.addEventListener("fullscreenchange", onFullscreenChange);
+    return () => {
+      // Cleanup event listener
+      document.removeEventListener("fullscreenchange", onFullscreenChange);
+    };
+  }, []);
 
-
+  // Array of banner images
   const bannerSlide = [
     "details-img-1",
     "details-img-2",
@@ -96,10 +96,7 @@ const CruiseDetails = () => {
         <Swiper 
           spaceBetween={5}
           slidesPerView={3} 
-          // navigation={true} 
           modules={[Navigation]} 
-          // loop={true}
-          // navigation={{ nextEl: ".arrow-left", prevEl: ".arrow-right" }}
           navigation={{
             prevEl: prevRefSwiper.current,
             nextEl: nextRefSwiper.current,
@@ -139,8 +136,8 @@ const CruiseDetails = () => {
             ))}
         </Swiper>
         <div className='swiper-navigation'>
-          <button ref={prevRefSwiper} className="swiper-button-prev"></button>
-          <button ref={nextRefSwiper} className="swiper-button-next"></button>
+          <button aria-label='previous-button' ref={prevRefSwiper} className="swiper-button-prev"></button>
+          <button aria-label='next-button' ref={nextRefSwiper} className="swiper-button-next"></button>
         </div>
         <div className="detailsBanner_curve ">
           <Image source="curve-gray.svg" className="img-fluid w-100" alt="banner-curve" />
@@ -411,25 +408,30 @@ const CruiseDetails = () => {
               <div className='bookingAction text-center'>
                 <Button onClick={toggleViews} size='lg' variant="primary" label='Select date and Continue' extraClass='text-uppercase w-100'></Button>
                 <p>Cancel up to 7 days before your trip and get a 50% refund plus service fees back.</p>
-                <Link to="#">View Policies</Link>
+                <Link onClick={handlePoliciesShow} to="#">View Policies</Link>
               </div>
             </Col>
           </Row>
         </Container>
       </section>
-    </main>  
+    </main>
+    {/* map modal */}
     <Modal show={showPortsModal} className="mapModal" handleClose={handlePortsClose} size="lg">
       <MapsModal/>
     </Modal>
+    {/* cruise modal */}
     <SideModal showModal={isCruiseOpen} extraClass="pd-40 pb-0" onClose={toggleCruise}>
       <CruiseModal/>
     </SideModal>
+    {/* views modal */}
     <SideModal showModal={isViewsOpen} onClose={toggleViews}>
       <ViewsModal handlePortsShow={handlePortsShow} innertoggleCruise={innertoggleCruise } toggleDates={toggleDates}/>
     </SideModal>
+    {/* dates modal */}
     <SideModal showModal={isDatesOpen} extraClass="pd-40" closeBtn={false} onClose={toggleDates}>
       <DatesModal toggleBack={toggleBack}/>
     </SideModal>
+    {/* videos modal */}
     <Modal show={showVideosModal} className="videoModal" handleClose={handleVideosClose} size="md">
       <VideosModal/>
     </Modal>

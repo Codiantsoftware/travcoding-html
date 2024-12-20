@@ -2,7 +2,7 @@ $label-color: color(800);
 $input-color: color(900);
 $input-bg-color: color(80);
 $input-border-color: transparent;
-$input-focus-border: color(600);
+$input-focus-border: color(500);
 $placholder-color: rgba(#1d212e, 0.8);
 
 .form-group,
@@ -142,6 +142,7 @@ textarea {
     .form-control {
       padding: 12px 16px;
       height: 45px;
+      font-size: 15px;
     }
   }
 }

@@ -48,6 +48,81 @@
     @include media-breakpoint-down(lg){
         &-cross{font-size: 13px;top: 22px;}
     }
+    &.travellerModal{
+        backdrop-filter: blur(5px);
+        .travellerDesc{
+            &_img{
+                width: 140px;
+                height: 140px;
+                margin-bottom: 15px;
+            }
+            &_name{
+                font-size: 28px;
+                color: color(800);
+            }
+            &_location{
+                color: rgba($color: color(800), $alpha: 0.75);
+            }
+            &_rating{
+                margin: 10px 0;
+                em{
+                    font-size: 16px;
+                    color: color(150);
+                    &.fill{
+                        color: color(500);
+                    }
+                }
+            }
+        }
+        @include media-breakpoint-down(xxl){
+            .travellerDesc{
+                &_img{
+                    width: 110px;
+                    height: 110px;
+                    margin-bottom: 10px;
+                }
+                &_name{
+                    font-size: 24px;
+                }
+            }
+        }
+        @include media-breakpoint-up(lg){            
+            .modal-cross{
+                font-size: 15px;
+            }
+        }
+        @include media-breakpoint-down(lg){
+            .travellerDesc{
+                &_img{
+                    width: 95px;
+                    height: 95px;
+                }
+                &_name{
+                    font-size: 22px;
+                }
+            }
+        }
+        @include media-breakpoint-down(sm){
+            .travellerDesc{
+                &_img{
+                    width: 75px;
+                    height: 75px;
+                }
+                &_name{
+                    font-size: 20px;
+                }
+                &_rating{
+                    margin: 6px 0;
+                    em{
+                        font-size: 13px;
+                    }
+                }
+            }
+            .modal-cross{
+                font-size: 13px;
+            }
+        }
+    }
 }
 .modal-backdrop{
     --bs-backdrop-bg: #101010;

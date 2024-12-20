@@ -68,13 +68,13 @@ export function ViewsModal({handlePortsShow, innertoggleCruise, toggleDates}) {
             </div>
           </h2>
           <div className="sideModal_head_list">
-            <em className="icon-ship" /><span>MSC Seashore</span><span>Bahamas</span>
+            <em className="icon-ship" /><span className="font-md">MSC Seashore</span><span className="font-md">Bahamas</span>
           </div>
         </div>
         <div className="sideModal_body">
           <Tab.Container defaultActiveKey="#Inside">
             <div className="sideModal_body_view">
-              <div className="sideModal_body_sub">Caribbean and Antilles, 3 Nights</div>
+              <div className="sideModal_body_sub font-md">Caribbean and Antilles, 3 Nights</div>
               <ul className="list-unstyled">
                 <li>
                   <span className="font-md">Roundtrip From:</span><span> Port Canaveral, Port Canaveral</span>
@@ -84,12 +84,12 @@ export function ViewsModal({handlePortsShow, innertoggleCruise, toggleDates}) {
                 </li>
               </ul>
               <div className="sideModal_body_btns d-flex align-items-center justify-content-between">
-                <div role="button" className="sideModal_body_port" onClick={handlePortsShow}>+ View Ports & Map</div>
+                <div role="button" className="sideModal_body_port font-md" onClick={handlePortsShow}>+ View Ports & Map</div>
                 <Button type="button" extraClass="text-uppercase" variant="outline-secondary" label="View Itinerary" onClick={innertoggleCruise} />
               </div>
               <div className="sideModal_body_txt d-sm-flex align-items-sm-center justify-content-sm-between">
-                <div className="sideModal_body_available">17 Available Date</div>
-                <div className="sideModal_body_rate">Lowest available rate</div>
+                <div className="sideModal_body_available font-md">17 Available Date</div>
+                <div className="sideModal_body_rate font-md">Lowest available rate</div>
               </div>
               <Nav variant="pills" className="commonTabs border-md">
                 <Nav.Item>
@@ -134,6 +134,7 @@ export function ViewsModal({handlePortsShow, innertoggleCruise, toggleDates}) {
                                       key={i}
                                       role="button"
                                       className="tbIcon_items"
+                                      aria-label="tbIcon-btn"
                                     >
                                       <OverlayTrigger
                                         placement="top"
@@ -188,6 +189,7 @@ export function ViewsModal({handlePortsShow, innertoggleCruise, toggleDates}) {
                                       key={i}
                                       role="button"
                                       className="tbIcon_items"
+                                      aria-label="tbIcon-btn"
                                     >
                                       <OverlayTrigger
                                         placement="top"
@@ -242,6 +244,7 @@ export function ViewsModal({handlePortsShow, innertoggleCruise, toggleDates}) {
                                       key={i}
                                       role="button"
                                       className="tbIcon_items"
+                                      aria-label="tbIcon-btn"
                                     >
                                       <OverlayTrigger
                                         placement="top"
@@ -296,6 +299,7 @@ export function ViewsModal({handlePortsShow, innertoggleCruise, toggleDates}) {
                                       key={i}
                                       role="button"
                                       className="tbIcon_items"
+                                      aria-label="tbIcon-btn"
                                     >
                                       <OverlayTrigger
                                         placement="top"

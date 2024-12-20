@@ -27,7 +27,7 @@
         margin-bottom: 0;
         margin-top: 20px;
     }
-    // Main Banner Slider CSS Start
+    // Banner Slider CSS Start
     .detailsBanner{
         .swiper{
             &-button{
@@ -105,7 +105,7 @@
                                 width: 2px;
                                 height: 15px;
                                 left: -2px;
-                                background-color: #CFCFCF;
+                                background-color: color(150);
                                 @include absolutecenter(y);
                             }
                         }
@@ -140,7 +140,7 @@
                                     width: 2px;
                                     height: 15px;
                                     right: -2px;
-                                    background-color: #CFCFCF;
+                                    background-color: color(150);
                                     @include absolutecenter(y);
                                 }
                             }

@@ -35,7 +35,7 @@ function Listing() {
         "Ocean Cay MSC Marine Reserve Bahamas",
         "Port Canaveral (Orlando) Florida",
       ],
-      path: frontendRouteMap.LISTING.path,
+      path: frontendRouteMap.CRUISE_DETAILS.path,
       price: "$248.91",
       additional: "Includes taxes and fees",
       para: "Ports of Call may vary by departure date and subject to weather and other conditions.",
@@ -54,7 +54,7 @@ function Listing() {
       itinerary: [
         "Fort Lauderdale", "Florida, Nassau", "Bahamas", "Perfect Day Cococay", "Bahamas", "Fort Lauderdale", "Florida"
       ],
-      path: frontendRouteMap.LISTING.path,
+      path: frontendRouteMap.CRUISE_DETAILS.path,
       price: "$363.58",
       additional: "Includes taxes and fees",
       para: "Ports of Call may vary by departure date and subject to weather and other conditions.",
@@ -72,7 +72,7 @@ function Listing() {
       from: "Lisbon, Porto",
       itinerary: ["Zurich", "Lucerne", "Basel", "Breisach", "Strasbourg", "Ludwigshafen", "Rdesheim", "Rhine Gorge", "Lahnstein", "Dsseldorf", "Amsterdam"],
       price: "$5,603.00",
-      path: frontendRouteMap.LISTING.path,
+      path: frontendRouteMap.CRUISE_DETAILS.path,
       additional: "Includes taxes and fees",
       para: "Ports of Call may vary by departure date and subject to weather and other conditions.",
       roundtrip: "Singletrip From"
@@ -89,7 +89,7 @@ function Listing() {
       from: "Zurich, Zurich",
       itinerary: ["Zurich", "Lucerne", "Basel", "Breisach", "Strasbourg", "Ludwigshafen", "Rdesheim", "Rhine Gorge", "Lahnstein", "Dsseldorf", "Amsterdam"],
       price: "$5,603.00",
-      path: frontendRouteMap.LISTING.path,
+      path: frontendRouteMap.CRUISE_DETAILS.path,
       additional: "Includes taxes and fees",
       para: "Ports of Call may vary by departure date and subject to weather and other conditions.",
       roundtrip: "Roundtrip From"
@@ -106,7 +106,7 @@ function Listing() {
       from: "Zurich, Zurich",
       itinerary: ["Zurich", "Lucerne", "Basel", "Breisach", "Strasbourg", "Ludwigshafen", "Rdesheim", "Rhine Gorge", "Lahnstein", "Dsseldorf", "Amsterdam"],
       price: "$5,603.00",
-      path: frontendRouteMap.LISTING.path,
+      path: frontendRouteMap.CRUISE_DETAILS.path,
       additional: "Includes taxes and fees",
       para: "Ports of Call may vary by departure date and subject to weather and other conditions.",
       roundtrip: "Roundtrip From"
@@ -123,7 +123,7 @@ function Listing() {
       from: "Zurich, Zurich",
       itinerary: ["Zurich", "Lucerne", "Basel", "Breisach", "Strasbourg", "Ludwigshafen", "Rdesheim", "Rhine Gorge", "Lahnstein", "Dsseldorf", "Amsterdam"],
       price: "$5,603.00",
-      path: frontendRouteMap.LISTING.path,
+      path: frontendRouteMap.CRUISE_DETAILS.path,
       additional: "Includes taxes and fees",
       para: "Ports of Call may vary by departure date and subject to weather and other conditions.",
       roundtrip: "Roundtrip From"
@@ -214,6 +214,17 @@ function Listing() {
     setViewsOpen(true);
     setDatesOpen(false);
   };
+  useEffect(() => {
+    if (isCruiseOpen || isViewsOpen || isDatesOpen) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+    return () => {     
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, [isCruiseOpen, isViewsOpen, isDatesOpen]);
+
   //Filter Toggle
   const [showFilter, setShowFilter] = useState(false);
   useEffect(() => {
@@ -523,19 +534,23 @@ function Listing() {
         {/* Listing Section @E */}
       </main>
 
-      {/* Modals */}
+      {/* map modal */}
       <Modal show={showPortsModal} className="mapModal" handleClose={handlePortsClose} size="lg">
         <MapsModal/>
       </Modal>
+      {/* cruise modal */}
       <SideModal showModal={isCruiseOpen} extraClass="pd-40 pb-0" onClose={toggleCruise}>
         <CruiseModal/>
       </SideModal>
+      {/* view modal */}
       <SideModal showModal={isViewsOpen} onClose={toggleViews}>
         <ViewsModal handlePortsShow={handlePortsShow} innertoggleCruise={innertoggleCruise } toggleDates={toggleDates}/>
       </SideModal>
+      {/* date modal */}
       <SideModal showModal={isDatesOpen} extraClass="pd-40" closeBtn={false} onClose={toggleDates}>
         <DatesModal toggleBack={toggleBack}/>
       </SideModal>
+      {/* video modal */}
       <Modal show={showVideosModal} className="videoModal" handleClose={handleVideosClose} size="md">
         <VideosModal/>
       </Modal>
